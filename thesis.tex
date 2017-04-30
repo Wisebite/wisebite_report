@@ -1,0 +1,233 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Maggi Memoir Thesis
+% XeLaTeX Template
+% Version 1.0 (22/12/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original authors:
+% Federico Maggi (fede@maggi.cc) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX.
+%
+% Most of the document content and packages are specified within structure.tex
+% so if you need to make modifications to the template have a look there first!
+%
+% This template uses several fonts that are not available on most operating 
+% systems by default. These are: Adobe Caslon Pro, Envy Code R and 
+% Optima Regular. You will either need to obtain these and install them on your
+% system or change them to different fonts. Simply go to the Fonts block just
+% below here and modify their names to other fonts. You can also comment them 
+% out completely to use the default LaTeX font.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt,showtrims,a4paper,twoside]{memoir} % Change font size here (allowable values are 9pt-12pt), change the paper size, specify one or two sided printing and specify whether to show trimming lines
+
+\input{structure.tex} % Include the file containing the code defining the structure and style of the document
+
+%------------------------------------------------
+% Thesis Information
+
+\title{Integrated Detection of Anomalous Behavior of Computer Infrastructures} % Thesis title
+
+\author{Federico Maggi} % Author name
+
+\date{December 2013} % The date
+
+\newcommand{\institution}{University of California\xspace} % University/institution name
+
+\newcommand{\department}{Department of Computer Science\xspace} % Department name
+
+%------------------------------------------------
+% Fonts
+
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Ligatures={Common}]{Adobe Caslon Pro} % Normal document font
+\setmonofont[Scale=0.8]{Envy Code R} % Mono spaced font (\texttt{})
+\setsansfont[Scale=0.9]{Optima Regular} % Sans-serif font (\textsf{})
+
+\renewcommand*{\acffont}[1]{{\normalsize\itshape #1}} % Font style for the acronym text (e.g. Do It Yourself)
+\renewcommand*{\acfsfont}[1]{{\normalsize\upshape #1}} % Font style for the acronym in bracket (e.g. (DIY))
+
+%------------------------------------------------
+% Hyphenations
+
+\hyphenation{a-no-ma-lous a-no-ma-ly amounts breaches} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\maketitlehooka}{
+\centering
+\includegraphics[width=2.5cm]{Figures/polimi-logo}\\[.5cm] % Institution logo
+\institution\\ % Print institution name
+\emph{\department}\\[.2cm] % Print department name
+DOTTORATO DI RICERCA IN INGEGNERIA DELL'INFORMAZIONE % Degree or other information
+\par
+\hrulefill
+\vfill}
+\renewcommand{\maketitlehookb}{\vfill}
+\renewcommand{\maketitlehookc}{
+\vfill
+\begin{flushleft}
+Advisor:\\
+\textbf{Prof. Stefano Zanero}\\[.3cm] % Advisor's/supervisor's name
+Tutor:\\
+\textbf{Prof. Letizia Tanca}\\[.3cm] % Tutor's name
+Supervisor of the Doctoral Program:\\
+\textbf{Prof. Patrizio Colaneri} % Doctoral program supervisor's name
+\end{flushleft}
+\vfill}
+\preauthor{\begin{flushright}Doctoral Dissertation of:\\\bfseries} % Text prior to the author name - right aligned and bold
+\postauthor{\end{flushright}} % After the author name, stop right alignment
+
+%----------------------------------------------------------------------------------------
+
+\makeindex % Write an index file
+
+\begin{document}
+
+\begin{titlingpage}
+\maketitle % Print the title page
+\end{titlingpage}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+%----------------------------------------------------------------------------------------
+%	PREFACE
+%----------------------------------------------------------------------------------------
+
+\section*{Preface}
+This thesis embraces all the efforts that I put during the last three years as a PhD student at Politecnico di Milano. I have been working under the supervision of Prof. S. Zanero and Prof. G. Serazzi, who is also the leader of the research group I am part of. In this time frame I had the wonderful opportunity of being ``initiated'' to research, which radically changed the way I look at things: I found my natural \emph{``thinking outside the box''} attitude --- that was probably well-hidden under a thick layer of lack-of-opportunities, I took part of very interesting joint works --- among which the year I spent at the Computer Security Laboratory at UC Santa Barbara is at the first place, and I discovered the Zen of my life.
+
+My research is all about \emph{computers} and every other technology possibly related to them. Clearly, the way I look at computers has changed a bit since when I was seven. Still, I can remember me, typing on that \textsf{Commodore} 64 in front of a tube TV screen, trying to get that d---n routine written in \textsf{Basic} to work. I was just playing, obviously, but when I recently found a picture of me in front of that screen...it all became clear.
+
+So, although my attempt of writing a program to authenticate myself was a little bit naive --- being limited to a print instruction up to that point apart, of course --- I thought \emph{``maybe I am not in the wrong place, and the fact that my research is still about security is a good sign''}!
+
+Many years later, this work comes to life. There is a humongous amount of people that, directly or indirectly, have contributed to my research and, in particular, to this work. Since my first step into the lab, I will not, ever, be thankful enough to Stefano, who, despite my skepticism, convinced me to submit that application for the PhD program. For trusting me since the very first moment I am thankful to Prof. G. Serazzi as well, who has been always supportive. For hosting and supporting my research abroad I thank Prof. G. Vigna, Prof. C. Kruegel, and Prof. R. Kemmerer. Also, I wish to thank Prof. M. Matteucci for the great collaboration, Prof. I. Epifani for her insightful suggestions and Prof. H. Bos for the detailed review and the constructive comments.
+
+On the colleagues-side of this acknowledgments I put all the fellows of Room 157, Guido, the crew of the seclab and, in particular, Wil with whom I shared all the pain of paper writing between Sept '08 and Jun '09.
+
+On the friends-side of this list Lorenzo and Simona go first, for being our family.
+
+I have tried to translate in simple words the infinite gratitude I have and will always have to Valentina and my parents for being my fixed point in my life. Obviously, I failed.
+
+\begin{flushright}
+\textsc{\theauthor}\\
+Milano\\
+September 2009
+\end{flushright}
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+This dissertation details our research on anomaly detection techniques, that are central to several classic security-related tasks such as network monitoring, but it also have broader applications such as program behavior characterization or malware\index{malware} classification. In particular, we worked on anomaly detection from three different perspective, with the common goal of recognizing awkward activity on computer infrastructures. In fact, a computer system has several weak spots that must be protected to avoid attackers to take advantage of them. We focused on protecting the operating system, central to any computer, to avoid malicious code to subvert its normal activity. Secondly, we concentrated on protecting the web applications, which can be considered the modern, shared operating systems; because of their immense popularity, they have indeed become the most targeted entry point to violate a system. Last, we experimented with novel techniques with the aim of identifying related events (e.g., alerts reported by intrusion detection systems) to build new and more compact knowledge to detect malicious activity on large-scale systems.
+
+Our contributions regarding host-based protection systems focus on characterizing a process' behavior through the system calls invoked into the kernel. In particular, we engineered and carefully tested different versions of a multi-model detection system using both stochastic and deterministic models to capture the features of the system calls during normal operation of the operating system. Besides demonstrating the effectiveness of our approaches, we confirmed that the use of finite-state, deterministic models allow to detect deviations from the process' control flow with the highest accuracy; however, our contribution combine this effectiveness with advanced models for the system calls' arguments resulting in a significantly decreased number of false alarms.
+
+Our contributions regarding web-based protection systems focus on advanced training procedures to enable learning systems to perform well even in presence of changes in the web application source code --- particularly frequent in the Web 2.0 era. We also addressed data scarcity issues that is a real problem when deploying an anomaly detector to protect a new, never-used-before application. Both these issues dramatically decrease the detection capabilities of an intrusion detection system but can be effectively mitigated by adopting the techniques we propose.
+
+Last, we investigated the use of different stochastic and fuzzy models to perform automatic alert correlation, which is as post processing step to intrusion detection. We proposed a fuzzy model that formally defines the errors that inevitably occur if time-based alert aggregation (i.e., two alerts are considered correlated if they are close in time) is used. This model allow to account for measurements errors and avoid false correlations due to delays, for instance, or incorrect parameter settings. In addition, we defined a model to describe the alert generation as a stochastic process and experimented with non-parametric statistical tests to define robust, zero-configuration correlation systems.
+
+The aforementioned tools have been tested over different datasets --- that are thoroughly documented in this document --- and lead to interesting results.
+\end{abstract}
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents* % Print the table of contents
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	LIST OF FIGURES
+%----------------------------------------------------------------------------------------
+
+\listoffigures % Print the list of figures
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	LIST OF TABLES
+%----------------------------------------------------------------------------------------
+
+\listoftables % Print the list of tables
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	ACRONYMS
+%----------------------------------------------------------------------------------------
+
+\include{acronyms} % Include a List of Acronyms section using acronyms.tex where they are defined
+
+\cleartoverso % Force a break to an even page
+
+%----------------------------------------------------------------------------------------
+%	COLOPHON
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % Remove all headers and footers from this page
+
+\vspace*{2em}
+\renewcommand{\abstractname}{Colophon}
+\begin{abstract}
+This document was typeset using the \textsf{XeTeX} typesetting system created by the Non-Roman Script Initiative and the memoir class created by Peter Wilson. The body text is set 10pt with~Adobe Caslon Pro. Other fonts include \texttt{Envy Code R}, \textsf{Optima Regular} and. Most of the drawings are typeset using the \textsf{TikZ/PGF} packages by Till Tantau.
+\end{abstract}
+\vfill
+
+%----------------------------------------------------------------------------------------
+%	CONTENT CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\chapterstyle{thesis} % Change the style of the Chapter header to that defined in structure.tex
+
+\pagestyle{Ruled} % Include the chapter/section in the header along with a horizontal rule underneath
+
+\include{Chapters/introduction} % Include the introduction chapter
+\include{Chapters/chapter1} % Include the first content chapter
+%\include{Chapters/chapter2} % Include the second content chapter
+%\include{Chapters/chapter3} % Include the third content chapter
+
+\backmatter
+
+\chapterstyle{default} % Reset the chapter style back to the default used for non-content chapters
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{plainnat} % Use the plainnat bibliography style
+
+\bibliography{bibliography} % Use the bibliography.bib file as the source of references
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\printindex % Print the index
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
