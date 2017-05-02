@@ -41,7 +41,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{eurosym}
-
+\usepackage{footnote}
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{babel}
 \usepackage[backend=bibtex,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
@@ -89,6 +89,8 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{document}
 
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
