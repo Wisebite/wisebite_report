@@ -45,6 +45,8 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{babel}
 \usepackage[backend=bibtex,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage{multirow}
+\usepackage{float}
 
 \addbibresource{example.bib} % The filename of the bibliography
 
@@ -89,8 +91,6 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{document}
 
-\makesavenoteenv{tabular}
-\makesavenoteenv{table}
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
