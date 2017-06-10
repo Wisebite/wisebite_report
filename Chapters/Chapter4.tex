@@ -57,7 +57,89 @@ TODO: Redactar
 
 \section{Requisits no funcionals}
 
-TODO: Redactar
+En aquest apartat es realitzarà un repàs de tots els requisits no funcionals\cite{requisito} o de qualitat dels quals disposa el sistema, és a dir, l'especificació de quelcom sobre el mateix sistema, i de com s'ha de realitzar les accions pertinents a aquest. Per entendre-ho amb més facilitat s'ha dividit el conjunt de requisits segons el tipus descrit per \textit{Volere}\cite{volere}.
+\\\\
+% ONE
+\noindent\textbf{Requisits d'aparença}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 10a
+\item \textit{Descripció}: Disseny atractiu i d'ús senzill que convidarà a l'usuari a fer-ne ús amb més facilitat.
+\item \textit{Justificació del requisit}: Com l'aplicació treballa sobre un nombre de persones considerable, com és tot el sector de la restauració i els seus respectius clients, cal destacar per l'atractiu de l'aplicació per tal de marcar un abans i un després en l'usuari, és a dir, que gaudeixi de l'experiència a l'hora d'utilitzar \textit{Wisebite}.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si s'obté una bona valoració dels usuaris en respecte a l'aparença. Es podrà verificar amb una enquesta de satisfacció al conjunt d'usuaris de l'aplicació.
+\end{itemize}
+
+% TWO
+\noindent\textbf{Requisits d'estil}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 10b
+\item \textit{Descripció}: Disseny modern i ambiciós, seguint la tendència en disseny però destacant en punts específics.
+\item \textit{Justificació del requisit}: La competència del mercat ens obliga a disposar d'un disseny modern per tal destacar sobre la comunitat d'usuaris, i així guanyar usuaris no només per les funcionalitats de la plataforma, sinó per l'estil de l'aplicació.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si més de tres quartes parts dels usuaris consideren que \textit{Wisebite} disposa d'un disseny modern, fet que es podrà comprovar amb una enquesta.
+\end{itemize}
+
+% THREE
+\noindent\textbf{Requisits de facilitat d'ús}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 11a
+\item \textit{Descripció}: El sistema ha de ser intuïtiu i fàcil d'usar. Complirà els criteris en temes de disseny, de contingut, d'estructura i de presentació fixats pel W3C\cite{w3c}.
+\item \textit{Justificació del requisit}: Un punt diferenciador important és que l'usuari pugui fer servir el sistema intuïtivament, de manera que no perdi el temps intentant descobrir com funciona i, a més a més, que qualsevol persona sigui capaç de familiaritzar-se amb el sistema. Aquest fet és molt important, ja que la majoria dels usuaris de \textit{Wisebite} no formarà part de la comunitat dels informàtics.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si un usuari amb poca experiència en aplicacions aconsegueix usar-lo sense cap problema. Per això, s'utilitzarà un grup de persones inexpert en l'ús d'aplicacions mòbil per veure quina és la seva reacció utilitzant \textit{Wisebite}.
+\end{itemize}
+
+% FOUR
+\noindent\textbf{Requisits de latència i velocitat}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 12a
+\item \textit{Descripció}: La resposta del sistema ha de ser de menys d'un segon com a mínim en el 95\% de les operacions.
+\item \textit{Justificació del requisit}: Un temps de resposta ràpid permet que l'usuari no perdi el flux o atenció del que està fent amb el sistema. Una plataforma de latència i velocitat dolenta produiria insatisfacció per part de l'usuari.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si donat un estudi sobre el rendiment de l'aplicació, aquest confirma que el temps d'espera en cada acció és menor al segon en el 95\% dels casos.
+\end{itemize}
+
+% FIVE
+\noindent\textbf{Requisits de precisió o exactitud}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 12c
+\item \textit{Descripció}: Totes les dates que s'incloguin en l'aplicació tindran el format universal: \textit{DD/MM/AAAA}
+\item \textit{Justificació del requisit}: És convenient especificar el format de la data, ja que no a tot arreu té el mateix format i podria provocar malentesos i confusions entre els usuaris.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si el format de la data i l'hora segueix l'estàndard ISO-8601\cite{iso8601} extens d'estil Europeu (EN 28601).
+\end{itemize}
+
+% SIX
+\noindent\textbf{Requisit de disponibilitat}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 12d
+\item \textit{Descripció}: El sistema haurà d'estar disponible les 24 hores del dia durant els 365 dies que conformen l'any.
+\item \textit{Justificació del requisit}: Els usuaris han de poder utilitzar el sistema en qualsevol moment del dia per tal de poder buscar restaurants o gestionar-los.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si el sistema està disponible i completament funcional tot el temps.
+\end{itemize}
+
+% SEVEN
+\noindent\textbf{Requisits d'adaptabilitat}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 14c
+\item \textit{Descripció}: L'aplicació mòbil ha de poder-se veure i executar correctament en els diferents smartphones del mercat, i tenir les mateixes funcionalitats i característiques en tots ells.
+\item \textit{Justificació del requisit}: L'existència de tants telèfons mòbils diferents i tantes versions d'Android disponibles actualment obliga a garantir que com a mínim es veurà de forma correcta i es podrà executar totes les funcionalitats de la plataforma.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si el sistema es pot visualitzar i executar correctament en els principals smartphones del mercat.
+\end{itemize}
+
+% EIGHT
+\noindent\textbf{Requisit d'immunitat}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 15e
+\item \textit{Descripció}: El sistema està protegit d'atacs externs i infeccions per software maliciós.
+\item \textit{Justificació del requisit}: S'ha de garantir la seguretat per evitar posar en risc la disponibilitat del sistema i la privadesa de les dades dels usuaris. Avui en dia que tot està tan digitalitzat, és un fet molt important per garantir la comoditat de l'usuari a l'hora d'accedir a la plataforma.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si s'implementa la normativa de seguretat internacional ISO-17799\cite{iso17799} per tal de garantir la seguretat davant d'atacs externs.
+\end{itemize}
+
+% NINE
+\noindent\textbf{Requisits legals}
+\begin{itemize}
+\item \textit{Tipus de requisit (Volere)}: 17a
+\item \textit{Descripció}: S'aconseguiran tots els drets sobre els serveis externs que s'utilitzin a l'aplicació i a la vegada es compliran les lleis sobre el tractament de dades personals.
+\item \textit{Justificació del requisit}: Es pactaran acords amb totes les empreses de les quals s'utilitzen els seus serveis, arribant a acords sigui amb la Universitat per poder aprofitar la seva plataforma o amb empreses externes. I també mostrar transparència a l'hora de no compartir dades personals per fins no vinculants al sistema.
+\item \textit{Condició de satisfacció}: El requisit se satisfarà si no es rep cap denuncia per part de cap servei extern, ni de cap usuari per ús indegut de les dades personals.
+\end{itemize}
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
