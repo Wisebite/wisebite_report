@@ -69,10 +69,10 @@ A \textit{Wisebite}, com en tot projecte, es disposa d'un seguit de requisits fu
 \item \textbf{Cobrar una comanda de forma total}: es permetrà cobrar una comanda específica recol·lectant el total de la comanda en qüestió.
 \item \textbf{Cobrar una comanda de forma fraccionada}: es permetrà cobra una comanda de forma fraccionada, és a dir, seleccionar un subconjunt dels elements de la comanda per així cobrar-ho de forma separada.
 \item \textbf{Afegir un usuari al restaurant}: es permetrà afegir un usuari a un establiment en específic per així donar-li accés a totes les funcionalitats d'aquest.
-\item \textbf{Llistar tots els restaurants}: es permetrà llistar tots els restaurants de la plataforma podent veure els dies d'apertura, el nombre de plats i menús i la valoració mitjana de cadascun d'ells.
-\item \textbf{Crear una comanda a un restaurant aliè}: es permetrà crear una comanda a un restaurant diferent del de la propietat de l'usuari, en cas que existeixi, especificant tota la informació necessària.
 \item \textbf{Obtenir les estadístiques del teu restaurant}: es permetrà veure les estadístiques del teu establiment de restauració consultant el nombre de comandes, el preu mitjà d'aquestes, el total obtingut, el millor i pitjor plat, el millor i pitjor menú, la millor franja horària, el temps mitjà entre l'inici i el final d'una comanda, la puntuació mitjana i el comptador de valoracions. A més d'anar acompanyat de tres gràfiques que especifiquen el percentatge de plats i menús venuts, i les franges horàries. Totes aquestes dades seran filtrades per dia, setmana o mes.
 \item \textbf{Canviar la data de l'anàlisi}: es permetrà canviar la data de l'anàlisi i situar-se en un dia desitjat i consultar les estadístiques d'aquell dia, d'aquella setmana i d'aquell mes.
+\item \textbf{Llistar tots els restaurants}: es permetrà llistar tots els restaurants de la plataforma podent veure els dies d'apertura, el nombre de plats i menús i la valoració mitjana de cadascun d'ells.
+\item \textbf{Crear una comanda a un restaurant aliè}: es permetrà crear una comanda a un restaurant diferent del de la propietat de l'usuari, en cas que existeixi, especificant tota la informació necessària.
 \item \textbf{Consultar les valoracions pendents}: es permetrà consultar les valoracions pendents de les quals disposarà l'usuari en qüestió.
 \item \textbf{Valorar una comanda}: es permetrà valorar una comanda en concret indicant la puntuació dels plats i menús demanats, acompanyats d'un comentari opcional. A més a més, es permetrà valorar de forma global l'opinió sobre el restaurant.
 \item \textbf{Consultar les valoracions d'un plat o menú}: es permetrà obtenir les valoracions d'un plat o menú per així veure l'opinió d'aquest.
@@ -618,5 +618,224 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 
 \clearpage
 \subsection{Anàlisi de l'establiment}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Figures/casosUs_analisiEstabliment.png}
+\caption{Diagrama de casos d'ús referent a l'anàlisi de l'establiment}
+\end{figure}
 
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#18 & Obtenir les estadístiques del teu restaurant  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#19 & Canviar la data de l'anàlisi  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\clearpage
 \subsection{Interacció del client}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Figures/casosUs_interaccioClient.png}
+\caption{Diagrama de casos d'ús referent a la interacció del client}
+\end{figure}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#20 & Llistar tots els restaurants  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#21 & Crear una comanda a un restaurant aliè  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#22 & Consultar les valoracions pendents  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#23 & Valorar una comanda  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#24 & Consultar les valoracions d'un plat o menú  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#25 & Consultar les valoracions d’un restaurant  \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d’èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. TEST}\\
+\multicolumn{3}{|T|}{2. TEST}\\ 
+\multicolumn{3}{|T|}{3. TEST}\\ 
+\multicolumn{3}{|T|}{4. TEST}\\ 
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{3.a TEST} \\ 
+\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
+\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
+\multicolumn{3}{|T|}{4.a TEST} \\
+\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
+\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{TEST}}
+\end{table}
