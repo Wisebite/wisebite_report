@@ -87,7 +87,14 @@ headsepline, % Uncomment to get a line under the header
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+\hypersetup{linkcolor=black}
 }
+
+\newcolumntype{L}{>{\centering}m{0.75cm}}
+\newcolumntype{M}{m{9cm}}
+\newcolumntype{T}{m{12cm}}
+
+\newcommand\tab[1][0.75cm]{\hspace*{#1}}
 
 \begin{document}
 

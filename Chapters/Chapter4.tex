@@ -51,7 +51,12 @@ Així doncs, igual que els altres col·lectius, aquest té una importància dife
 
 A \textit{Wisebite}, com en tot projecte, es disposa d'un seguit de requisits funcionals o funcionalitats que defineixen l'ús de la plataforma. El conjunt de tots ells engloben totes les possibilitats de les quals disposa l'usuari en interaccionar amb l'aplicació.
 
-\begin{itemize}
+\begin{enumerate}
+\item \textbf{Iniciar sessió}: es permetrà iniciar sessió amb algun dels comptes de \textit{Google} de les quals disposa l'usuari.
+\item \textbf{Tancar sessió}: es permetrà tancar sessió del sistema.
+\item \textbf{Veure usuari}: es permetrà veure o consultar els detalls del teu usuari obtenint el nom, el cognom, el correu electrònic, la localització, el nom del restaurant al qual està relacionat (si escau) i el nombre de comandes realitzades (si existeixen), a més de la imatge de perfil.
+\item \textbf{Editar informació bàsica d'usuari}: es permetrà editar la informació bàsica de l'usuari, englobant el nom, el cognom i la localització.
+\item \textbf{Canviar imatge de perfil}: es permetrà editar la imatge de perfil permetent pujar una imatge nova emmagatzemada al dispositiu de l'usuari.
 \item \textbf{Crear restaurant}: es permetrà la creació d'un establiment de restauració indicant tota la informació necessària: nom, localització, descripció, telèfon de contacte, pàgina web, nombre de taules, horaris d'apertura i la carta de plats i menús dels quals disposa el bar o restaurant.
 \item \textbf{Consultar restaurant}: es permetrà obtenir tota la informació referent al restaurant en qüestió, podent-se així informar sobre l'establiment.
 \item \textbf{Crear una comanda al teu restaurant}: es permetrà crear una comanda al teu restaurant especificant la taula en la qual es realitza la comanda, i el conjunt de plats i menús que ha especificat el client.
@@ -72,12 +77,7 @@ A \textit{Wisebite}, com en tot projecte, es disposa d'un seguit de requisits fu
 \item \textbf{Valorar una comanda}: es permetrà valorar una comanda en concret indicant la puntuació dels plats i menús demanats, acompanyats d'un comentari opcional. A més a més, es permetrà valorar de forma global l'opinió sobre el restaurant.
 \item \textbf{Consultar les valoracions d'un plat o menú}: es permetrà obtenir les valoracions d'un plat o menú per així veure l'opinió d'aquest.
 \item \textbf{Consultar les valoracions d'un restaurant}: es permetrà obtenir les valoracions d'un restaurant en concret per així veure l'opinió d'aquest.
-\item \textbf{Iniciar sessió}: es permetrà iniciar sessió amb algun dels comptes de \textit{Google} de les quals disposa l'usuari.
-\item \textbf{Tancar sessió}: es permetrà tancar sessió del sistema.
-\item \textbf{Veure usuari}: es permetrà veure o consultar els detalls del teu usuari obtenint el nom, el cognom, el correu electrònic, la localització, el nom del restaurant al qual està relacionat (si escau) i el nombre de comandes realitzades (si existeixen), a més de la imatge de perfil.
-\item \textbf{Editar informació bàsica d'usuari}: es permetrà editar la informació bàsica de l'usuari, englobant el nom, el cognom i la localització.
-\item \textbf{Canviar imatge de perfil}: es permetrà editar la imatge de perfil permetent pujar una imatge nova emmagatzemada al dispositiu de l'usuari.
-\end{itemize}
+\end{enumerate}
 \newpage
 
 %----------------------------------------------------------------------------------------
@@ -174,6 +174,131 @@ En aquest apartat es realitzarà un repàs de tots els requisits no funcionals\c
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 
+\newpage
 \section{Casos d'ús}
 
-TODO: Redactar
+Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i especificar els casos d'ús de la plataforma. Per realitzar-ho, s'ha decidit dividir els vint-i-cinc casos d'ús en diferents categories segons el tipus de funcionalitat que vol aconseguir el cas d'ús en concret. El conjunt de casos d'ús es dividirà quatre grups: gestió d'usuaris, gestió de l'establiment, anàlisi de l'establiment i interacció del client.
+
+\subsection{Gestió d'usuaris}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Figures/casosUs_gestioUsuaris.png}
+\caption{Diagrama de casos d'ús referent a la gestió d'usuaris}
+\end{figure}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#1 & Iniciar sessió \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la primera pantalla de l'aplicació.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol iniciar sessió al sistema.} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. L'usuari clica al botó d'iniciar sessió.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix l'usuari al llistat de comptes de Google disponibles al dispositiu.}\\
+\multicolumn{3}{|T|}{3. L'usuari selecciona el compte desitjat.}\\
+\multicolumn{3}{|T|}{4. El sistema redirigeix a l'usuari a la pantalla principal de l'aplicació, ja amb la sessió iniciada.}\\
+\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{Iniciar sessió}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#2 & Tancar sessió \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla principal de l'aplicació.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol tancar sessió al sistema.} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. L'usuari clica sobre la icona de la cantonada esquerra de la barra superior.}\\
+\multicolumn{3}{|T|}{2. El sistema mostra a l'usuari un desplegable amb l'opció de tancar sessió.}\\
+\multicolumn{3}{|T|}{3. L'usuari clica sobre l'opció de tancar sessió}\\
+\multicolumn{3}{|T|}{4. El sistema redirigeix a l'usuari a la primera pantalla de l'aplicació, ja amb la sessió tancada}\\
+\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{Tancar sessió}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#3 & Veure usuari \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla principal de l'aplicació.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol accedir a la seva informació.} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. L'usuari clica sobre el \textit{Navigational drawer} amb l'objectiu de fer-lo desplegar.}\\
+\multicolumn{3}{|T|}{2. El sistema desplega el menú lateral.}\\
+\multicolumn{3}{|T|}{3. L'usuari clica sobre la seva imatge situada a la part superior del menú lateral.}\\
+\multicolumn{3}{|T|}{4. El sistema redirigeix a l'usuari a la pantalla de detall d'usuari.}\\
+\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{Veure usuari}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#4 & Editar informació bàsica d'usuari \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla de detall de l'usuari.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol modificar la seva informació bàsica.} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. L'usuari clica sobre el botó rodó de la dreta de la part inferior de la pantalla.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la pantalla d'editar usuari.}\\
+\multicolumn{3}{|T|}{3. L'usuari modifica algun o alguns dels tres camps que té disponibles: nom, cognom i localització. L'usuari clica sobre el botó superior de la dreta per confirmar els canvis.}\\
+\multicolumn{3}{|T|}{4. El sistema emmagatzema els canvis i redirigeix a l'usuari a la pantalla de detall d'usuari.}\\
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{2.a L'usuari cancel·la els canvis} \\
+\multicolumn{3}{|T|}{\tab2.a.1 L'usuari clica sobre la marxa enrere de la barra superior.} \\
+\multicolumn{3}{|T|}{\tab2.a.2 El sistema redirigeix a l'usuari a la pantalla de detall de l'usuari sense cap canvi emmagatzemat.} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{Editar informació bàsica d'usuari}}
+\end{table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|L|l|}
+\hline
+\textbf{Cas d'ús}& \#5 & Canviar imatge de perfil \\ \hline
+\textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla de detall de l'usuari.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol modificar la seva imatge de perfil.} \\ \hline
+\multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
+\multicolumn{3}{|T|}{1. L'usuari clica sobre el botó rodó de la dreta de la part inferior de la pantalla.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la pantalla d'editar usuari.}\\
+\multicolumn{3}{|T|}{3. L'usuari clica sobre la imatge d'usuari.}\\
+\multicolumn{3}{|T|}{4. El sistema mostra la galeria amb les imatges disponibles dins del dispositiu.}\\
+\multicolumn{3}{|T|}{5. L'usuari selecciona la imatge desitjada.}\\
+\multicolumn{3}{|T|}{6. El sistema redirigeix a la pantalla d'editar usuari amb la imatge modificada per la seleccionada.}\\
+\multicolumn{3}{|T|}{7. L'usuari clica sobre el botó superior de la dreta per confirmar els canvis.}\\
+\multicolumn{3}{|T|}{8. El sistema emmagatzema els canvis i redirigeix a l'usuari a la pantalla de detall d'usuari.}\\
+\hline
+\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
+\multicolumn{3}{|T|}{2.a L'usuari cancel·la els canvis} \\
+\multicolumn{3}{|T|}{\tab2.a.1 L'usuari clica sobre la marxa enrere de la barra superior.} \\
+\multicolumn{3}{|T|}{\tab2.a.2 El sistema redirigeix a l'usuari a la pantalla de detall de l'usuari sense cap canvi emmagatzemat.} \\
+\multicolumn{3}{|T|}{6.a L'usuari cancel·la els canvis} \\
+\multicolumn{3}{|T|}{\tab6.a.1 L'usuari clica sobre la marxa enrere de la barra superior.} \\
+\multicolumn{3}{|T|}{\tab6.a.2 El sistema redirigeix a l'usuari a la pantalla de detall de l'usuari sense cap canvi emmagatzemat.} \\\hline
+\end{tabular}
+\label{}
+\caption{Cas d'ús \textit{Canviar imatge de perfil}}
+\end{table}
+
+\clearpage
+\subsection{Gestió de l'establiment}
+
+\subsection{Anàlisi de l'establiment}
+
+\subsection{Interacció del client}
