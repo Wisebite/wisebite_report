@@ -622,24 +622,17 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 \hline
 \textbf{Cas d'ús}& \#20 & Llistar tots els restaurants  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla principal de l'aplicació.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol consultar els restaurants emmagatzemats dins la plataforma.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. L'usuari clica sobre el \textit{Navigational drawer} amb l'objectiu de fer-lo desplegar.}\\
+\multicolumn{3}{|T|}{2. El sistema desplega el menú lateral.}\\
+\multicolumn{3}{|T|}{3. L'usuari clica sobre la pestanya anomenada \textit{List restaurants} del menú lateral.}\\
+\multicolumn{3}{|T|}{4. El sistema redirigeix a l'usuari a la pantalla referent al llistat de restaurants.}\\
 \hline
-\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Llistar tots els restaurants}}
 \end{table}
 
 \begin{table}[!h]
@@ -648,24 +641,25 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 \hline
 \textbf{Cas d'ús}& \#21 & Crear una comanda a un restaurant aliè  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla referent al llistat dels restaurants.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol crear una comanda a un restaurant aliè.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. L'usuari selecciona algun dels restaurants del llistat.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la pantalla de vista d'un restaurant.}\\ 
+\multicolumn{3}{|T|}{3. L'usuari clica sobre el botó rodó de la barra superior.}\\ 
+\multicolumn{3}{|T|}{4. El sistema mostra un desplegable amb un petit formulari per introduir la taula a on es realitza la comanda.}\\
+\multicolumn{3}{|T|}{5. L'usuari escriu el número de taula a on es realitza la comanda i prem \textit{Acceptar}.}\\
+\multicolumn{3}{|T|}{6. El sistema redirigeix a l'usuari a la pantalla de creació de comanda.}\\
+\multicolumn{3}{|T|}{7. L'usuari selecciona els plats i menús que desitja prement el botó de \textit{+} de cada un dels ítems de la carta. En cas que estiguem parlant d'un menú, s'haurà de seleccionar quins plats es vol del menú determinat. Un cop tot completat, l'usuari clica sobre el botó de la part superior-dreta per finalitzar la creació de la comanda.}\\
+\multicolumn{3}{|T|}{8. El sistema redirigeix a l'usuari a la pantalla de visualització del restaurant amb la nova comanda emmagatzemada.}\\
 \hline
 \multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\multicolumn{3}{|T|}{7.a L'usuari cancel·la els canvis} \\
+\multicolumn{3}{|T|}{\tab7.a.1 L'usuari clica sobre la marxa enrere de la barra superior.} \\
+\multicolumn{3}{|T|}{\tab7.a.2 El sistema redirigeix a l'usuari a la pantalla de visualització del restaurant sense cap canvi emmagatzemat.} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Crear una comanda a un restaurant aliè}}
 \end{table}
 
 \begin{table}[!h]
@@ -674,24 +668,17 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 \hline
 \textbf{Cas d'ús}& \#22 & Consultar les valoracions pendents  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla principal de l'aplicació.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol consultar les seves valoracions pendents.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. L'usuari clica sobre el \textit{Navigational drawer} amb l'objectiu de fer-lo desplegar.}\\
+\multicolumn{3}{|T|}{2. El sistema desplega el menú lateral.}\\
+\multicolumn{3}{|T|}{3. L'usuari clica sobre la pestanya anomenada \textit{Pending reviews} del menú lateral.}\\
+\multicolumn{3}{|T|}{4. El sistema redirigeix a l'usuari a la pantalla de valoracions pendents.}\\
 \hline
-\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Consultar les valoracions pendents}}
 \end{table}
 
 \begin{table}[!h]
@@ -700,24 +687,21 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 \hline
 \textbf{Cas d'ús}& \#23 & Valorar una comanda  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla de valoracions pendents.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol valorar una de les comandes que té pendents per valorar.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. Selecciona una de les comandes que té per valorar.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la vista de valoració.}\\ 
+\multicolumn{3}{|T|}{3. L'usuari puntua amb una puntuació fins a 5 estrelles cada un dels plats que formen la comanda i afegeix un comentari opcional que complementa la valoració. A més a més, també valora el restaurant de forma global amb una puntuació i un comentari opcional. Un cop finalitzat acciona el botó de la part inferior de la pantalla.}\\ 
+\multicolumn{3}{|T|}{4. El sistema emmagatzema les dades introduïdes i redirigeix a l'usuari a la pantalla de valoracions pendents.}\\ 
 \hline
 \multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
+\multicolumn{3}{|T|}{3.a L'usuari cancel·la els canvis} \\
+\multicolumn{3}{|T|}{\tab3.a.1 L'usuari clica sobre la marxa enrere de la barra superior.} \\
+\multicolumn{3}{|T|}{\tab3.a.2 El sistema redirigeix a l'usuari a la pantalla de valoracions pendents sense cap canvi emmagatzemat.} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Valorar una comanda}}
 \end{table}
 
 \begin{table}[!h]
@@ -726,48 +710,38 @@ Un cop definits i analitzats tots els requisits del sistema, caldrà explicar i 
 \hline
 \textbf{Cas d'ús}& \#24 & Consultar les valoracions d'un plat o menú  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla referent al llistat dels restaurants.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol consultar les valoracions d'un plat o menú d'un restaurant aliè.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. L'usuari selecciona algun dels restaurants del llistat.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la pantalla de vista d'un restaurant.}\\ 
+\multicolumn{3}{|T|}{3. L'usuari manté clicat sobre un dels plats o menús del restaurant.}\\
+\multicolumn{3}{|T|}{4. El sistema mostra un diàleg amb estadístiques i informació bàsica sobre l'ítem seleccionat.}\\
+\multicolumn{3}{|T|}{5. L'usuari clica sobre el botó del diàleg amb títol \textit{Reviews}.}\\
+\multicolumn{3}{|T|}{6. El sistema redirigeix a l'usuari a la pantalla de valoracions de l'ítem seleccionat.}\\
 \hline
-\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Consultar les valoracions d'un plat o menú.}}
 \end{table}
 
 \begin{table}[!h]
 \centering
 \begin{tabular}{|l|L|l|}
 \hline
-\textbf{Cas d'ús}& \#25 & Consultar les valoracions d’un restaurant  \\ \hline
+\textbf{Cas d'ús}& \#25 & Consultar les valoracions d'un restaurant  \\ \hline
 \textbf{Actor principal} & \multicolumn{2}{l|}{Usuari} \\ \hline
-\textbf{Precondició} & \multicolumn{2}{M|}{TEST} \\ \hline
-\textbf{Trigger} & \multicolumn{2}{M|}{TEST} \\ \hline
+\textbf{Precondició} & \multicolumn{2}{M|}{L'usuari ha accedit a la pantalla referent al llistat dels restaurants.} \\ \hline
+\textbf{Trigger} & \multicolumn{2}{M|}{L'usuari vol consultar les valoracions d'un restaurant.} \\ \hline
 \multicolumn{3}{|T|}{\textbf{Escenari principal d'èxit}} \\ \hline
-\multicolumn{3}{|T|}{1. TEST}\\
-\multicolumn{3}{|T|}{2. TEST}\\ 
-\multicolumn{3}{|T|}{3. TEST}\\ 
-\multicolumn{3}{|T|}{4. TEST}\\ 
+\multicolumn{3}{|T|}{1. L'usuari selecciona algun dels restaurants del llistat.}\\
+\multicolumn{3}{|T|}{2. El sistema redirigeix a l'usuari a la pantalla de vista d'un restaurant.}\\ 
+\multicolumn{3}{|T|}{3. L'usuari clica sobre la icona de la cantonada esquerra de la barra superior.}\\
+\multicolumn{3}{|T|}{4. El sistema mostra a l'usuari un desplegable amb l'opció de consultar les valoracions sobre el restaurant.}\\
+\multicolumn{3}{|T|}{5. L'usuari clica sobre l'opció de consultar les valoracions sobre el restaurant.}\\
+\multicolumn{3}{|T|}{6. El sistema redirigeix a l'usuari a la pantalla de valoracions del restaurant seleccionat.}\\
 \hline
-\multicolumn{3}{|T|}{\textbf{Extensions}} \\ \hline
-\multicolumn{3}{|T|}{3.a TEST} \\ 
-\multicolumn{3}{|T|}{\tab3.a.1  TEST} \\
-\multicolumn{3}{|T|}{\tab3.a.2  TEST} \\
-\multicolumn{3}{|T|}{4.a TEST} \\
-\multicolumn{3}{|T|}{\tab4.a.1 TEST} \\ 
-\multicolumn{3}{|T|}{\tab4.a.2 TEST} \\\hline
 \end{tabular}
 \label{}
-\caption{Cas d'ús \textit{TEST}}
+\caption{Cas d'ús \textit{Consultar les valoracions d'un restaurant}}
 \end{table}
