@@ -12,7 +12,34 @@ Després d'haver explicat l'origen de \textit{Wisebite}, haver estudiat les solu
 
 \section{Esquema conceptual}
 
-L'esquema conceptual d'un sistema és la representació gràfica dels models que caracteritzen aquest. En Enginyeria del Software això és conegut com un diagrama de classes\cite{diagramaclases}. Primerament, s'expressarà en format UML i posteriorment s'explicarà textualment.
+L'esquema conceptual d'un sistema és la representació gràfica dels models que caracteritzen aquest. En Enginyeria del Software això és conegut com un diagrama de classes\cite{diagramaclases}. Primerament, s'explicarà textualment les entitats que participen en l'esquema conceptual i posteriorment es mostrà el diagrama de classes representatiu.
+
+\subsection{Descripció de les classes}
+
+L'esquema conceptual del projecte \textit{Wisebite} disposa de nou classes que s'explicaran a continuació.
+
+\begin{itemize}
+\item \textbf{User}: Un usuari és l'entitat que representa a les persones que utilitzaran l'aplicació i les seves funcionalitats. Un usuari té un \textit{id}, que l'identifica, un \textit{correu electrònic} (email), un \textit{nom} (name), un \textit{cognom} (lastName) i una \textit{localització} (location). Cada usuari pot o no tenir una imatge de perfil, treballa o no a un restaurant, pot crear moltes comandes, pot disposar d'un seguit de comandes a valorar i pot tenir d'un conjunt de valoracions realitzades emmagatzemades dins la plataforma.
+
+\item \textbf{Image}: Una imatge és l'entitat que representa una imatge emmagatzemada al sistema. Una imatge té un \textit{id}, que l'identifica, una \textit{ruta} per localitzar-la quan sigui necessari (imageFile) i una \textit{descripció} (description). Cada imatge pot estar relacionada o amb un usuari o bé amb un restaurant.
+
+\item \textbf{Restaurant}: Un restaurant és l'entitat que representa a l'establiment de restauració que engloba l'objectiu de la plataforma. Un restaurant té un \textit{id}, que l'identifica, un \textit{nom} (name), un \textit{telèfon} de contacte (phone), una \textit{descripció} (description), una \textit{localització} (location), un \textit{nombre de taules} (numberOfTables) i la direcció de la \textit{pàgina web} (website). Cada restaurant pot disposar de fins a set horaris d'apertura, pot tenir moltes imatges associades, molts usuaris formant l'equip de treball de l'establiment, pot tenir un conjunt de comandes externes, un conjunt de plats i menús que composen la carta de l'establiment i un grup d'avaluacions realitzades pels usuaris de la plataforma.
+
+\item \textbf{OpenTime}: Un horari d'apertura és l'entitat que representa l'horari d'inici i final d'una franja horària. Un horari d'apertura té un \textit{id}, que l'identifica, un \textit{horari d'inici} (startDate) i un \textit{horari fi} (endDate). Cada horari d'apertura està relacionat amb un restaurant.
+
+\item \textbf{Dish}: Un plat és l'entitat que representa al plat de forma individual. Un plat té un \textit{id}, que l'identifica, un \textit{nom} (name), una \textit{descripció} (description) i un \textit{preu} (price). Cada plat forma part d'un restaurant, pot ser part d'un menú especific jugant el paper de plat principal, secundari o alternatiu, pot tenir un conjunt de valoracions dels usuaris de l'aplicació i forma part d'un seguit de línies de comanda.
+
+\item \textbf{Menu}: Un menu és l'entitat que representa a un menú de la carta de l'establiment. Un menú té un \textit{id}, que l'identifica,un \textit{nom} (name), una \textit{descripció} (description) i un \textit{preu} (price). Cada menú forma part d'un restaurant i pot tenir un conjunt de valoracions dels usuaris de l'aplicació.
+
+\item \textbf{Order}: Una comanda és l'entitat que representa la petició d'un client dins d'un establiment de restauració. Una comanda té un \textit{id}, que l'identifica, una \textit{data} d'inici (date), un \textit{número de taula} (tableNumber) i una \textit{data d'última modificació} (lastDate). Cada comanda es creada per un dels usuaris de la plataforma, pot estar en la llista de comandes a valorar per part d'un usuari, pot ser part del conjunt de comandes externes de l'aplicació i conté un conjunt de línies de comanda.
+
+\item \textbf{OrderItem}: Una línia de comanda és l'entitat que representa un dels elements del llistat que forma una comanda. Una línia de comanda té un \textit{id}, que l'identifica, pot estar o no \textit{preparat} (ready), pot estar o no \textit{estregat} (delivered), pot estar o no \textit{pagat} (paid) i té una \textit{característica diferent} (differentFeature). Cada línia de comanda forma part d'una comanda i té un plat dins del restaurant associat.
+
+\item \textbf{Review}: Una valoració és l'entitat que representa l'opinió d'un usuari sobre un plat, un menú o un restaurant. Una valoració té un \textit{id}, que l'identifica, una \textit{puntuació} (points), un \textit{comentari} (comment) i una \textit{data} de realització (date). Cada valoració està sempre relacionada o bé amb un plat, o amb un menú o amb un restaurant i ha estat realitzada per un usuari.
+\end{itemize}
+
+\clearpage
+\subsection{Diagrama de classes}
 
 \begin{figure}[!h]
 \centering
