@@ -4,13 +4,40 @@
 
 \label{Chapter6} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
+Després d'haver mencionat, de forma molt específica, com és l'aplicació tant en requisits com en objectius, hem de veure com està construïda internament, és a dir, quin tipus d'arquitectura tècnica segueix, quin disseny de base de dades s'ha establert, com s'ha dissenyat el software implementat i amb quins patrons s'ha construït i finalment com s'ha definit la interfície de l'usuari.
+
 %----------------------------------------------------------------------------------------
-%	SECTION 1
+% SECTION 1
 %----------------------------------------------------------------------------------------
 
 \section{Arquitectura del sistema}
 
-TODO: Redactar
+Després d'haver explicat quin és l'abast i quins objectius té \textit{Wisebite}, es va prendre la decisió que el projecte esdevingués a una plataforma mòbil per a dispositius Android. La justificació d'aquest fet ve dividida en dos punts, primer el fet que sigui un mòbil i no pas una aplicació web, per exemple, i l'altre pel fet que només s'hagi implementat per Android i no pas per cap altra sistema operatiu d'aquest tipus.
+\\\\
+En primera instància, el motiu principal pel qual \textit{Wisebite} ha estat implementat i dissenyat per dispositius mòbils és el dinamisme que aporten i del qual no disposen els dispositius de sobretaula. El món de la restauració és un sector de moviment continu, tant per part de l'empleat com per part del client. Un treballador d'un bar o restaurant es mourà de forma contínua per l'establiment i un client no sol acudir al mateix restaurant sempre. En conseqüència, el fet que \textit{Wisebite} estigui disponible en telèfons mòbils o bé tauletes permet als usuaris d'aquesta plataforma interactuar amb ella des de qualsevol lloc i de forma més còmode interactuant amb la pantalla tàctil que disposa el terminal.
+\\\\
+Per altra banda, \textit{Wisebite} s'ha especialitzat en sistemes operatius Android i no pas en algun altre per un seguit de factors que es comenten a continuació.
+\\\\
+En primer lloc és important recordar un dels tres factors pels quals sistemes d'aquest tipus no han acabat d'introduir-se dins el sector: el factor econòmic. En el mercat dels dispositius mòbils és vist i reconegut que els dispositius Android, donat el gran número de terminals en els quals opera, són de preu més reduït que pas els sistemes iOS, implementats per Apple. Així doncs, és important oferir hardware barat als establiments que implantin \textit{Wisebite} per així reduir l'impacte econòmic que els pot ocasionar.
+\\\\
+En segon lloc, per què només per Android i no pas també per iOS? És cert que existeix un seguit de \textit{frameworks} que et permet desenvolupar aplicacions mòbils híbrides, és a dir, per a tots els sistemes operatius mòbils.
+\\\\
+La problemàtica principal d'aquest tipus de desenvolupament és el fet de no poder utilitzar tots els avantatges que et permet un sistema operatiu natiu en concret. Per exemple, si analitzem les aplicacions mòbils natives d'Android, veiem que tot el \textit{backend} de l'aplicació pot ser escrit en Java, C++ o bé Kotlin i el \textit{frontend} amb llenguatge d'etiquetes com és XML. En canvi, si es realitzes amb un dels \textit{frameworks} que ofereix el mercat s'escriuria en HTML, CSS i JavaScript, com si es tractés d'una pàgina web. Són maneres d'implementar aplicacions molt diferents, i per molt que aquests \textit{frameworks} ho vulguin simular al màxim no ho acaben d'aconseguir del tot. Així doncs, donat que un dels objectius clau que té \textit{Wisebite} és destacar per la seva interfície és molt millor implementar en llenguatge natiu donats els avantatges que t'ofereix.
+\\\\
+Per tant, donada aquesta justificació, l'aplicació correrà en dispositius exclusivament Android a partir de l'\textit{API 21} o versió \textit{5.0 Lollipop}, és a dir, en un 88.6\%\cite{androidOsAnalytics} dels dispositius de la marca de Google.
+\\\\
+Aquesta aplicació es comunica amb una base de dades no relacional (NoSQL) anomenada \textit{Firebase}. En apartats posteriors dins d'aquest mateix capítol s'explicarà com s'ha implementat l'esquema de dades dins d'aquest gestor, però abans en aquest apartat és important conèixer el perquè de l'elecció de \textit{Firebase} com a base de dades per a \textit{Wisebite}.
+\\\\
+\textit{Firebase} va ser comprada per Google el maig del 2016, fet que aporta serietat, fiabilitat i robustesa com a base de dades, és a dir, pertany a una de les institucions més importants dins el sector de la informàtica, per no dir el que més. Tot i així, el factor més important i pel qual es va decidir utilitzar aquesta base de dades no relacional és que la comunicació es realitza en temps real. Aquest aspecte és realment important sabent quina és la temàtica de l'aplicació. Es considera molt important aquest fet, ja que l'actualització automàtica de les dades sense necessitat de refresc manual facilita moltíssim la feina d'un cambrer o d'un cuiner a l'hora d'interactuar amb la plataforma. Així doncs, per aquest fet es va decidir implantar la base de dades dins de \textit{Firebase}.
+\\\\
+Per últim, l'aplicació emmagatzemarà les dades temporals en un \textit{SQLite} que actuarà de memòria cau dins de \textit{Wisebite}. La justificació de l'ús d'aquesta tecnologia ve donat pel fet que Android la utilitza de forma predefinida en les seves aplicacions natives.
+\\\\
+Per clarificar més el concepte i veure quina és la interacció de l'usuari amb \textit{Android}, \textit{Firebase} i \textit{SQLite}, es mostra a continuació una gràfica de l'arquitectura tècnica que s'ha decidit utilitzar a \textit{Wisebite}.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{Figures/technical_architecture.png}
+\caption{Arquitectura tècnica del sistema}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -29,5 +56,13 @@ TODO: Redactar
 TODO: Redactar
 
 \subsection{Patrons de disseny}
+
+TODO: Redactar
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+
+\section{Disseny de la interfície}
 
 TODO: Redactar
