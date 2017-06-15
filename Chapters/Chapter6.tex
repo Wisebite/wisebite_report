@@ -45,7 +45,223 @@ Per clarificar més el concepte i veure quina és la interacció de l'usuari amb
 
 \section{Disseny de la base de dades}
 
-TODO: Redactar
+Com s'ha comentat en l'apartat anterior, la base de dades de \textit{Wisebite} serà \textit{Firebase}. Aquesta base de dades funciona amb una estructura en forma d'arbre basant-se en el format JSON\cite{json}.
+\\\\
+Existeix un node pare o arrel anomenat \textit{wisebite-f7a53} del qual pengen tots els nodes restants. Per a tal de dissenyar una bona base de dades NoSQL de tipus clau-valor, com es \textit{Firebase}, és necessari tenir en compte un seguit de conceptes per seguir les bones pràctiques que les mateixes guies del gestor recomanen:
+\begin{itemize}
+\item El fet d'accedir a un node, fa que hagi de descarregar tot l'arbre del qual penja aquest node (amb tots els seus respectius fills). Per tant, la solució és disgregar els elements. Cal tenir cura en relacionar els components o nodes de la base de dades per poder-los processar correctament. Un bon mètode seria associar els elements via el seu identificador i no pas tot l'element.
+\item Per realitzar relacions entre, per exemple, un restaurant i els usuaris als quals hi treballen podríem pensar en afegir un node fill per a cada usuari del restaurant. Això és ineficient en cas de tenir restaurants amb un gran nombre d'usuaris en ells. En conseqüència, la solució seria utilitzar índexs. Per a cada restaurant s'hauria de tenir un llistat d'usuaris on es representen els usuaris pertanyents a ell.
+\end{itemize}
+
+\noindent Llavors, en definitiva, el missatge més important és que cal tenir en compte que encara que \textit{Firebase} tingui una estructura en forma d'arbre, no s'ha de construir  esquema de profunditat molt gran, sinó millor crear un arbre amb la major amplada possible. Això farà més eficient les consultes a la base de dades.
+\\\\
+Després d'haver estudiat i entès quines són les bones pràctiques d'una base de dades no relacional de tipus clau-valor, s'ha dissenyat de tal manera que pengen nou nodes del node arrel, on allà s'emmagatzemen totes les instàncies d'aquella entitat. Cadascuna d'elles serà identificada a partir d'un identificador aleatori. Cadascun d'aquest nodes representen les nou entitats que han estat explicades en capítols anteriors. A continuació es mostra l'estructura de la base de dades en format JSON.
+
+\clearpage
+\begin{lstlisting}[language=json,firstnumber=1]
+"wisebite-f7a53" : {
+   "dish" : {
+      "-KlPZWq5d4cFO6NJ0nc4" : {
+         "description" : "Classic",
+         "id" : "-KlPZWq5d4cFO6NJ0nc4",
+         "name" : "Paella",
+         "price" : 12,
+         "reviews" : {
+            "-KlyJ20Nr3OpnA0JLqk5" : true,
+            "-Km3Q9par9GavvZHt-4L" : true,
+            "-KmNrn1Gxu66N6tc5u32" : true
+         }
+      },
+      ...
+   },
+   "image" : {
+      "-KlPTsD8xjazZ8KceJ6E" : {
+         "description" : "Profile photo",
+         "id" : "-KlPTsD8xjazZ8KceJ6E",
+         "imageFile" : "https://lh5.googleuser..."
+      },
+      ...
+   },
+   "menu" : {
+      "-KlPeMorCJsXKHh024Ui" : {
+         "description" : "nu",
+         "id" : "-KlPeMorCJsXKHh024Ui"
+         "mainDishes" : {
+            "-KlPeLzph1_Sz7UGcnMc" : true
+         },
+         "name" : "menu",
+         "otherDishes" : {
+            "-KlPeLzrWp_u0Fx3bNPW" : true
+         },
+         "price" : 0.5,
+         "secondaryDishes" : {
+            "-KlPeLzrWp_u0Fx3bNPV" : true
+         }
+      },
+      ...
+   },
+   "openTime" : {
+      "-KlPY8bUts4c9domVn5d" : {
+         "endDate" : {
+            "date" : 29,
+            "day" : 1,
+            "hours" : 22,
+            "minutes" : 0,
+            "month" : 11,
+            "seconds" : 0,
+            "time" : -180000000,
+            "timezoneOffset" : 0,
+            "year" : 69
+         },
+         "id" : "-KlPY8bUts4c9domVn5d",
+         "startDate" : {
+            "date" : 29,
+            "day" : 1,
+            "hours" : 8,
+            "minutes" : 0,
+            "month" : 11,
+            "seconds" : 0,
+            "time" : -230400000,
+            "timezoneOffset" : 0,
+            "year" : 69
+         }
+       },
+       ...
+    },
+   "order" : {
+      "-KlZianOlkFpEkNFoiF7" : {
+         "date" : {
+            "date" : 1,
+            "day" : 4,
+            "hours" : 19,
+            "minutes" : 35,
+            "month" : 5,
+            "seconds" : 58,
+            "time" : 1496338558814,
+            "timezoneOffset" : -120,
+            "year" : 117
+         },
+         "id" : "-KlZianOlkFpEkNFoiF7",
+         "lastDate" : {
+            "date" : 1,
+            "day" : 4,
+            "hours" : 20,
+            "minutes" : 37,
+            "month" : 5,
+            "seconds" : 53,
+            "time" : 1496342273505,
+            "timezoneOffset" : -120,
+            "year" : 117
+         },
+         "orderItems" : {
+            "-KlZian7yy0XgIJaGrCV" : true,
+            "-KlZianHOSo5hbzboxWl" : true,
+            "-KlZianKOdNMI1r06jnh" : true,
+            "-KlZianMs7fEFfK3JJw7" : true
+         },
+         "tableNumber" : 9
+      },
+      ...
+   },
+   "orderItem" : {
+      "-KlYSoFkb_Z7WmMsvNEy" : {
+         "delivered" : false,
+         "dishId" : "-KlPeMorCJsXKHh024Uh",
+         "id" : "-KlYSoFkb_Z7WmMsvNEy",
+         "menuId" : null,
+         "paid" : true,
+         "ready" : false
+      },
+      ...
+   },
+   "restaurant" : {
+      "-KlPZWqHH5fEgUoCrGG5" : {
+         "description" : "De tota la vida, de poble.",
+         "dishes" : {
+            "-KlPZWq-xR39JAJBEitN" : true,
+            "-KlPZWq1k46MlYinfido" : true,
+            "-KlPZWq3w_Zwu63am50p" : true,
+            "-KlPZWq4OshyHXIufnFO" : true,
+            "-KlPZWq5d4cFO6NJ0nc4" : true
+         },
+         "externalOrders" : {
+            "-Kldj4NCYd-3ZN9H93Mh" : true,
+            "-Kldk-C2wrOFKZmrtOPB" : true,
+            "-Kldt2L6ZRJouCK75rzP" : true,
+            "-KlyIcuVp1Lx3U7235PN" : true,
+            "-Km3Q3B4u_Sq65WCv0bq" : true,
+            "-KmNqGKk-EURs6mBnQNz" : true
+         },
+         "id" : "-KlPZWqHH5fEgUoCrGG5",
+         "location" : "Sant Celoni",
+         "menus" : {
+            "-KlPZWq7lAVXkCYqe-Z9" : true,
+            "-KlPZWqDD_UhNEVauAtt" : true,
+            "-KlPZWqF14E1wMPYIHT6" : true
+         },
+         "name" : "Cerveseria Ceres",
+         "numberOfTables" : 30,
+         "openTimes" : {
+            "-KlPY8bUts4c9domVn5d" : true,
+            "-KlPY8bnpSPVrvXvEL6F" : true,
+            "-KlPY8brvVHqL0KXCfEi" : true,
+            "-KlPY8bz9HQijw46-WWE" : true,
+            "-KlPY8c2YzO4D7yZ99zU" : true
+         },
+         "phone" : 666544283,
+         "reviews" : {
+            "-KlyJ20VJ77rNt1Yfg2y" : true,
+            "-Km3Q9pddyCuqWYlCz-C" : true,
+            "-KmNrn1L9CSgClEUHv_I" : true
+         },
+         "users" : {
+            "alsumo95@gmail@com" : true
+         },
+         "website" : "ceres.com"
+       },
+       ...
+    },
+   "review" : {
+      "-KltwNoh4fDoG7tIWZYx" : {
+         "comment" : "Rico!",
+         "date" : {
+            "date" : 8,
+            "day" : 4,
+            "hours" : 9,
+            "minutes" : 21,
+            "month" : 5,
+            "seconds" : 12,
+            "time" : 1496906472539,
+            "timezoneOffset" : -120,
+            "year" : 117
+         },
+         "id" : "-KltwNoh4fDoG7tIWZYx",
+         "points" : 4,
+         "userId" : "alsumo95@gmail@com"
+      },
+      ...
+   },
+   "user" : {
+      "alripol95@gmail@com" : {
+         "email" : "alripol95@gmail.com",
+         "id" : "alripol95@gmail@com",
+         "imageId" : "-Km0MSeurykImTbkBPEl",
+         "lastName" : "Ripol",
+         "myOrders" : {
+            "-Km0RcztK3XoafmEAx4P" : true
+         },
+         "myRestaurants" : {
+            "-Km0Nbs9ioiglQBNVNvv" : true
+         },
+         "name" : "Albert",
+         "ordersToReview" : {
+            "-Km0RcztK3XoafmEAx4P" : true
+         }
+      },
+      ...
+   }
+}
+\end{lstlisting}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
