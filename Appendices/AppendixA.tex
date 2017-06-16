@@ -4,14 +4,594 @@
 
 \label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
-\section{Patró repositori}
+\section{Interfície Entity}
+\label{Entity}
 
-TODO: Inserir
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.utils;
 
-\section{Patró servei}
+import java.io.Serializable;
 
-TODO: Inserir
+public interface Entity extends Serializable {
 
-\section{Patró factoria}
+    String getId();
 
-TODO: Inserir
+    void setId(String id);
+
+}
+\end{lstlisting}
+
+\clearpage
+\section{Interfície Repository}
+\label{Repository}
+
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.firebase;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.List;
+
+import dev.wisebite.wisebite.utils.Entity;
+
+/**
+ * Created by albert on 13/03/17.
+ * @author albert
+ */
+public abstract class Repository<T extends Entity> implements ChildEventListener {
+
+    private OnChangedListener listener;
+
+    /**
+     * Just for the Firebase when needed
+     */
+    public Repository () {
+
+    }
+
+    public interface OnChangedListener {
+        enum EventType {Added, Changed, Removed, Moved, Full}
+
+        void onChanged(EventType type);
+    }
+
+    public void setOnChangedListener(OnChangedListener listener) {
+        this.listener = listener;
+    }
+
+    public abstract T insert(T item);
+
+    public abstract T insertInternal(T item);
+
+    public abstract T update(T item);
+
+    public abstract T updateInternal(T item);
+
+    public abstract void delete(String id);
+
+    public abstract void deleteInternal(String id);
+
+    public abstract boolean exists(String id);
+
+    public abstract T get(String id);
+
+    public abstract List<T> all();
+
+    protected void notifyChange(OnChangedListener.EventType type) {
+        if (listener != null){
+            listener.onChanged(type);
+        }
+    }
+
+    @Override
+    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+        insertInternal(convert(dataSnapshot));
+        notifyChange(OnChangedListener.EventType.Added);
+    }
+
+    @Override
+    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+        updateInternal(convert(dataSnapshot));
+        notifyChange(OnChangedListener.EventType.Changed);
+    }
+
+    @Override
+    public void onChildRemoved(DataSnapshot dataSnapshot) {
+        deleteInternal(convert(dataSnapshot).getId());
+        notifyChange(OnChangedListener.EventType.Removed);
+    }
+
+    @Override
+    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+        updateInternal(convert(dataSnapshot));
+        notifyChange(OnChangedListener.EventType.Moved);
+    }
+
+    protected abstract T convert(DataSnapshot data);
+
+}
+\end{lstlisting}
+
+\clearpage
+\section{Classe d'exemple Repository}
+\label{RepositoryXXXX}
+
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.repository;
+
+import android.content.Context;
+
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import dev.wisebite.wisebite.domain.Restaurant;
+import dev.wisebite.wisebite.firebase.FirebaseRepository;
+
+/**
+ * Created by albert on 13/03/17.
+ * @author albert
+ */
+public class RestaurantRepository extends FirebaseRepository<Restaurant> {
+
+    public static final String OBJECT_REFERENCE = "restaurant";
+    public static final String NAME_REFERENCE = "name";
+    public static final String LOCATION_REFERENCE = "location";
+    public static final String PHONE_REFERENCE = "phone";
+    public static final String DESCRIPTION_REFERENCE = "description";
+    public static final String WEBSITE_REFERENCE = "website";
+    public static final String NUMBER_OF_TABLES_REFERENCE = "numberOfTables";
+
+    public static final String OPEN_TIMES_REFERENCE = "openTimes";
+    public static final String MENUS_REFERENCE = "menus";
+    public static final String DISHES_REFERENCE = "dishes";
+    public static final String USERS_REFERENCE = "users";
+    public static final String EXTERNAL_ORDERS_REFERENCE = "externalOrders";
+    public static final String REVIEWS_REFERENCE = "reviews";
+
+    /**
+     * Constructor class
+     * @param context Repository's context
+     */
+    public RestaurantRepository(Context context) {
+        super(context);
+    }
+
+    @Override
+    protected Restaurant convert(DataSnapshot data) {
+        Restaurant restaurant = new Restaurant();
+        restaurant.setId(data.getKey());
+        for (DataSnapshot d : data.getChildren()) {
+            if (d.getKey().equals(NAME_REFERENCE)) {
+                restaurant.setName(d.getValue(String.class));
+            } else if (d.getKey().equals(LOCATION_REFERENCE)) {
+                restaurant.setLocation(d.getValue(String.class));
+            } else if (d.getKey().equals(PHONE_REFERENCE)) {
+                restaurant.setPhone(d.getValue(Integer.class));
+            } else if (d.getKey().equals(DESCRIPTION_REFERENCE)) {
+                restaurant.setDescription(d.getValue(String.class));
+            } else if (d.getKey().equals(WEBSITE_REFERENCE)) {
+                restaurant.setWebsite(d.getValue(String.class));
+            } else if (d.getKey().equals(NUMBER_OF_TABLES_REFERENCE)) {
+                restaurant.setNumberOfTables(d.getValue(Integer.class));
+            } else if (d.getKey().equals(OPEN_TIMES_REFERENCE)) {
+                Map<String, Object> openTimes = new LinkedHashMap<>();
+                for (DataSnapshot openTime : d.getChildren()) {
+                    openTimes.put(openTime.getKey(), true);
+                }
+                restaurant.setOpenTimes(openTimes);
+            } else if (d.getKey().equals(MENUS_REFERENCE)) {
+                Map<String, Object> menus = new LinkedHashMap<>();
+                for (DataSnapshot menu : d.getChildren()) {
+                    menus.put(menu.getKey(), true);
+                }
+                restaurant.setMenus(menus);
+            } else if (d.getKey().equals(DISHES_REFERENCE)) {
+                Map<String, Object> dishes = new LinkedHashMap<>();
+                for (DataSnapshot dish : d.getChildren()) {
+                    dishes.put(dish.getKey(), true);
+                }
+                restaurant.setDishes(dishes);
+            } else if (d.getKey().equals(USERS_REFERENCE)) {
+                Map<String, Object> users = new LinkedHashMap<>();
+                for (DataSnapshot dish : d.getChildren()) {
+                    users.put(dish.getKey(), true);
+                }
+                restaurant.setUsers(users);
+            } else if (d.getKey().equals(EXTERNAL_ORDERS_REFERENCE)) {
+                Map<String, Object> externalOrders = new LinkedHashMap<>();
+                for (DataSnapshot dish : d.getChildren()) {
+                    externalOrders.put(dish.getKey(), true);
+                }
+                restaurant.setExternalOrders(externalOrders);
+            } else if (d.getKey().equals(REVIEWS_REFERENCE)) {
+                Map<String, Object> reviews = new LinkedHashMap<>();
+                for (DataSnapshot review : d.getChildren()) {
+                    reviews.put(review.getKey(), true);
+                }
+                restaurant.setReviews(reviews);
+            }
+        }
+        return restaurant;
+    }
+
+    @Override
+    public String getObjectReference() {
+        return OBJECT_REFERENCE;
+    }
+
+}
+\end{lstlisting}
+
+\clearpage
+\section{Classe abstracta FirebaseRepository}
+\label{FirebaseRepository}
+
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.firebase;
+
+import android.content.Context;
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import dev.wisebite.wisebite.utils.Entity;
+
+/**
+ * Created by albert on 13/03/17.
+ * @author albert
+ */
+public abstract class FirebaseRepository<T extends Entity> extends Repository<T> {
+
+    public static final String FIREBASE_URI = "https://wisebite-f7a53.firebaseio.com/";
+    private static final String TAG = FirebaseRepository.class.getSimpleName();
+    private final HashMap<String, T> map;
+    protected FirebaseDatabase firebase;
+    protected DatabaseReference database;
+
+    /**
+     * Constructor class
+     * @param context Repository's context
+     */
+    public FirebaseRepository(@SuppressWarnings("UnusedParameters") Context context) {
+        firebase = FirebaseDatabase.getInstance(FIREBASE_URI);
+        database = firebase.getReference().child(getObjectReference());
+        map = new LinkedHashMap<>();
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    insertInternal(convert(child));
+                }
+                notifyChange(OnChangedListener.EventType.Full);
+            }
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+
+            }
+        });
+    }
+
+    /**
+     * Insert some object in specific repository with random id.
+     * @param item Object that you want to insert.
+     * @return Inserted item
+     */
+    @Override
+    public T insert(T item) {
+        DatabaseReference ref = database.push();
+        ref.setValue(item);
+        item.setId(ref.getKey());
+        map.put(ref.getKey(), item);
+        return item;
+    }
+
+    /**
+     * Insert some object in specific repository with specific id.
+     * @param t   Object that you want to insert.
+     * @param key Key that new object will have.
+     * @return Inserted item
+     */
+    private T insertWithId(T t, String key) {
+        t.setId(key);
+        database.child(key).setValue(t);
+        map.put(key, t);
+        return t;
+    }
+
+    /**
+     * Delete some object of this repository by id.
+     * @param id Object key that you want to delete.
+     */
+    public void delete(String id) {
+        database.child(id).removeValue();
+        map.remove(id);
+    }
+
+    /**
+     * Update specific item of repository
+     * @param item item that you want to update
+     * @return Inserted item
+     */
+    public T update(T item) {
+        delete(item.getId());
+        return insertWithId(item, item.getId());
+    }
+
+    /**
+     * Get object reference URI in Firebase.
+     * @return Respective reference URI of object.
+     */
+    public abstract String getObjectReference();
+
+    /**
+     * Get specific item of this repository
+     * @param id key that identifies the item
+     * @return Item that you want to get
+     */
+    public T get(String id) {
+        return map.get(id);
+    }
+
+    /**
+     * Get if an specific item exists
+     * @param id key that identifies the item
+     * @return Item that you want to get
+     */
+    public boolean exists(String id){
+        return map.keySet().contains(id);
+    }
+
+    /**
+     * Get all repository
+     * @return a list that contains all values of this repository
+     */
+    public List<T> all() {
+        return new ArrayList<>(map.values());
+    }
+
+    /**
+     * Listener that controls when it is occurred an error
+     * @param firebaseError error
+     */
+    @Override
+    public void onCancelled(DatabaseError firebaseError) {
+        Log.e(TAG, firebaseError.getMessage(), firebaseError.toException());
+    }
+
+    /**
+     * Insert some object internally
+     * @param item Object that you want to insert
+     * @return Inserted item
+     */
+    @Override
+    public T insertInternal(T item) {
+        map.put(item.getId(), item);
+        return item;
+    }
+
+    /**
+     * Update some object internally
+     * @param item Object that you want to update
+     * @return Updated item
+     */
+    @Override
+    public T updateInternal(T item) {
+        return insertInternal(item);
+    }
+
+    /**
+     * Delete some object internally
+     * @param id Object that you want to delete
+     */
+    @Override
+    public void deleteInternal(String id) {
+        map.remove(id);
+    }
+
+    /**
+     * Convert to object model
+     * @param data Object that you want to convert
+     * @return Modeled item
+     */
+    @Override
+    protected T convert(DataSnapshot data) {
+        return null;
+    }
+
+}
+\end{lstlisting}
+
+\clearpage
+\section{Interfície Service}
+\label{Service}
+
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.utils;
+
+import java.util.List;
+
+import dev.wisebite.wisebite.firebase.Repository;
+
+/**
+ * Created by albert on 13/03/17.
+ * @author albert
+ */
+public abstract class Service<T extends Entity> {
+
+    protected final Repository<T> repository;
+
+    public Service (Repository<T> repository){
+        this.repository = repository;
+    }
+
+    public T save(T item) {
+        if (repository.exists(item.getId())) return repository.update(item);
+        return repository.insert(item);
+    }
+
+    public T get(String key) {
+        return repository.get(key);
+    }
+
+    @SuppressWarnings("unused")
+    public void delete(String key){
+        repository.delete(key);
+    }
+
+    @SuppressWarnings("unused")
+    public int getAmount(){
+        return repository.all().size();
+    }
+
+    public List<T> getAll() {
+        return repository.all();
+    }
+
+    public void setOnChangedListener(Repository.OnChangedListener listener){
+        repository.setOnChangedListener(listener);
+    }
+
+}
+\end{lstlisting}
+
+\clearpage
+\section{Singleton ServiceFactory}
+\label{ServiceFactory}
+
+\begin{lstlisting}[language=java,firstnumber=1]
+package dev.wisebite.wisebite.service;
+
+import android.content.Context;
+
+import dev.wisebite.wisebite.repository.DishRepository;
+import dev.wisebite.wisebite.repository.ImageRepository;
+import dev.wisebite.wisebite.repository.MenuRepository;
+import dev.wisebite.wisebite.repository.OpenTimeRepository;
+import dev.wisebite.wisebite.repository.OrderItemRepository;
+import dev.wisebite.wisebite.repository.OrderRepository;
+import dev.wisebite.wisebite.repository.RestaurantRepository;
+import dev.wisebite.wisebite.repository.ReviewRepository;
+import dev.wisebite.wisebite.repository.UserRepository;
+
+/**
+ * Created by albert on 13/03/17.
+ * @author albert
+ */
+public final class ServiceFactory {
+
+    private static DishService dishService;
+    private static ImageService imageService;
+    private static MenuService menuService;
+    private static OpenTimeService openTimeService;
+    private static OrderItemService orderItemService;
+    private static OrderService orderService;
+    private static RestaurantService restaurantService;
+    private static ReviewService reviewService;
+    private static UserService userService;
+
+    public static DishService getDishService(Context context){
+        if (dishService == null)
+            dishService = new DishService(
+                    new DishRepository(context));
+        return dishService;
+    }
+
+    public static ImageService getImageService(Context context){
+        if (imageService == null)
+            imageService = new ImageService(
+                    new ImageRepository(context));
+        return imageService;
+    }
+
+    public static MenuService getMenuService(Context context){
+        if (menuService == null)
+            menuService = new MenuService(
+                    new MenuRepository(context),
+                    new DishRepository(context));
+        return menuService;
+    }
+
+    public static OpenTimeService getOpenTimeService(Context context){
+        if (openTimeService == null)
+            openTimeService = new OpenTimeService(
+                    new OpenTimeRepository(context));
+        return openTimeService;
+    }
+
+    public static OrderItemService getOrderItemService(Context context){
+        if (orderItemService == null)
+            orderItemService = new OrderItemService(
+                    new OrderItemRepository(context),
+                    new DishRepository(context),
+                    new MenuRepository(context));
+        return orderItemService;
+    }
+
+    public static OrderService getOrderService(Context context){
+        if (orderService == null)
+            orderService = new OrderService(
+                    new OrderRepository(context),
+                    new OrderItemRepository(context),
+                    new DishRepository(context),
+                    new MenuRepository(context),
+                    new RestaurantRepository(context),
+                    new UserRepository(context));
+        return orderService;
+    }
+
+    public static RestaurantService getRestaurantService(Context context){
+        if (restaurantService == null)
+            restaurantService = new RestaurantService(
+                    new RestaurantRepository(context),
+                    new MenuRepository(context),
+                    new DishRepository(context),
+                    new ImageRepository(context),
+                    new OpenTimeRepository(context),
+                    new OrderRepository(context),
+                    new OrderItemRepository(context),
+                    new UserRepository(context),
+                    new ReviewRepository(context));
+        return restaurantService;
+    }
+
+    public static ReviewService getReviewService(Context context) {
+        if (reviewService == null) {
+            reviewService = new ReviewService(
+                    new ReviewRepository(context),
+                    new RestaurantRepository(context),
+                    new DishRepository(context),
+                    new MenuRepository(context),
+                    new UserRepository(context));
+        }
+        return reviewService;
+    }
+
+    public static UserService getUserService(Context context){
+        if (userService == null)
+            userService = new UserService(
+                    new UserRepository(context),
+                    new ImageRepository(context),
+                    new RestaurantRepository(context),
+                    new OrderRepository(context),
+                    new OrderItemRepository(context));
+        return userService;
+    }
+
+    public static Integer getServiceCount() {
+        return 9;
+    }
+}
+\end{lstlisting}
