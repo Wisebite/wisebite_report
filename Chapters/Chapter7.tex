@@ -4,17 +4,35 @@
 
 \label{Chapter7} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
+Un cop decidit com serà el sistema, és a dir, quins requisits, objectius i abast tindrà, i quin disseny s'aplicarà en ell, el següent és parla de la implementació per si mateixa. Les decisions preses anteriorment i explicades en capítols anteriors han marcat el que s'explicarà en aquest capítol. En primera instància es realitzarà un repàs per les tecnologies i eines utilitzades durant el desenvolupament de \textit{Wisebite}, i per acabar es seguirà pels detalls de la implementació del projecte.
+
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
 \section{Tecnologies i eines utilitzades}
 
-TODO: Redactar
+Durant el desenvolupament del projecte s'ha utilitzat tot tipus de tecnologies, és per això que s'ha decidit subdividir-ho en quatre conceptes. Començant pels llenguatges de programació, seguint per les bases de dades, mencionant les eines utilitzades i finalitzant amb les llibreries externes utilitzades.
 
 \subsection{Llenguatge de programació}
 
-TODO: Redactar
+\textbf{\large Java}\cite{java}\\
+Com es va comentar anteriorment en la decisió de l'arquitectura, es va decidir construir una aplicació Android. Aquest sistema operatiu permet desenvolupar el \textit{backend} de les seves aplicacions natives en Java, C++ i Kotlin. Donat que el desenvolupador tenia més coneixement en desenvolupament d'aplicacions Android en Java, es va decidir utilitzar aquest llenguatge. A més a més, al ser el llenguatge de programació més utilitzat en el món des de ja fa anys, la comunitat d'usuaris és molt gran. En conseqüència, la probabilitat de trobar solucions a possibles problemes que es poden ocasionar és molt més alta que pas amb els altres dos llenguatges.
+\\\\
+\textbf{\large XML}\cite{xml}\\
+El desenvolupament del \textit{frontend} en Android es realitza en llenguatge d'etiquetes, específicament XML. A diferència del \textit{backend}, en aquest cas no es tenia elecció dins del context de desenvolupament d'aplicacions natives.
+\\\\
+\textbf{\large \LaTeX}\cite{latex}\\
+La realització de la memòria del projecte ha estat realitzada amb el llenguatge de software lliure anomenat \LaTeX. És un llenguatge que et permet realitzar documents pdf a través d'unes directives. L'esforç inicial d'aprendre aquest llenguatge es va contemplar en la planificació temporal del projecte, i tot i conèixer que seria d'un període més o menys considerable, es va contemplar l'esforç com útil en el projecte per la professionalitat i la robustesa que reflexa el document.
+\\\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.20]{Figures/java.png}
+\includegraphics[scale=0.15]{Figures/xml.png}
+\hspace{0.8cm}
+\includegraphics[scale=0.20]{Figures/latex.png}
+\caption{Llenguatges de programació}
+\end{figure}
 
 \subsection{Bases de dades}
 
