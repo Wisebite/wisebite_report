@@ -112,12 +112,52 @@ Per optimitzar més el desenvolupament del projecte es va voler utilitzar la lli
 \clearpage
 \section{Detalls de la implementació}
 
-TODO: Redactar
+Durant la implementació del projecte s'han seguit un conjunt de directrius específiques que han marcat l'estat final del producte. En aquest apartat s'explicarà en primera instància la metodologia d'implementació que s'ha seguit per obtenir un bon codi, i finalment com s'ha redactat la memòria amb l'ús, com s'ha comentat anteriorment, de \LaTeX.
 
 \subsection{Implementació de l'aplicació}
 
-TODO: Redactar
+La implementació de la qual disposa \textit{Wisebite} no conté cap algorisme de computació molt complex, més aviat són operacions trivials. És per això que s'ha volgut emfatitzar en com el codi ha anat evolucionant i com s'ha volgut remarcar la importància de tenir un codi ben documentat, ja que el codi sempre es llegirà més cops dels que s'escriurà. Per tant, es important tenir aquest aspecte en compte.
+\\\\
+Al seguir una metodologia àgil, com es va comentar en els primers capítols, és fàcil subdividir les tasques en històries d'usuari, les quals componen una funcionalitat independent del sistema. Així doncs, utilitzant les eines que ens facilita \textit{git} i \textit{GitHub}, es realitzava una branca per cada una de les històries d'usuari que s'implementava i cada \textit{bug} o error que es trobava. Entenem com a branca o \textit{branch} un mètode per ramificar part del codi d'un projecte, és a dir, desenvolupar part del codi de forma independent a la resta.
+\\\\
+Aquest concepte té molt sentit en treballs en equip, ja que molts membres poden treballar de forma independent tot i tocar codi del mateix projecte. Malgrat que aquest projecte sigui individual no impedeix que les branques deixin de ser útils. Permet veure, amb una mica de retrospectiva, l'evolució del codi i garantir que el codi publicat en la branca principal (coneguda com \textit{master}) és el correcte i funcional en plenes condicions.
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.435]{Figures/branches.png}
+\caption{Gestió de branques}
+\end{figure}
+
+\noindent Un cop el codi d'una branca estava finalitzat es creava una \textit{pull request} per revisar els canvis i acceptar-la en cas que fos correcte. Entenem \textit{pull request} com un conjunt de canvis que es volen revisar per ser acceptats i ser fusionats amb la branca principal. Al ser un treball individual la revisió només la realitza el desenvolupador del fragment de codi a revisar, però et permet disposar d'un historial de canvis i saber quina ha estat l'evolució i quan es van realitzar els canvis.
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.4]{Figures/pullrequests.png}
+\caption{Gestió de pull requests}
+\end{figure}
+
+\noindent Així doncs el codi va evolucionant segons s'ha explicat, és a dir, mantenint la branca principal sempre funcional i desenvolupant en branques independents de la \textit{master}. Seguint aquesta metodologia es pot obtenir un codi prou documentat. Tot i així, com es pot arribar a entendre, hi ha punts dins la cronologia del codi que són més importants que la resta. Per aquest motiu s'ha decidit realitzar diferents versions del codi, les quals s'han anat provant amb usuaris externs al sistema, aspecte que es comentarà en el capítol següent.
+\\\\
+Per a poder posar a la pràctica aquest fet s'utilitzen els \textit{tags} o les \textit{releases} de GitHub. Aquestes eines et permeten marcar de manera destacada un punt de la cronologia del codi i posar-li un nom i una descripció. Així doncs, durant l'historial el codi de \textit{Wisebite} s'han indicat deu etiquetes amb les respectives versions del codi.
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.55]{Figures/tags.png}
+\caption{Gestió de tags}
+\end{figure}
+
+\noindent Per altra banda també s'ha utilitzat les \textit{issues} de GitHub com un estil de bloc de notes amb els errors o millores que es volen realitzar a la plataforma i que en aquell moment no eren prioritats.
+\\\\
+I per últim, i ja lluny de la gestió de versions del codi i de la seva cronologia, s'ha utilitzat \textit{JavaDoc} com a estil de documentació del codi Java. Per així emfatitzar en el concepte que el codi es llegeix més cops del que s'escriu.
 
 \subsection{Implementació de la memòria}
 
-TODO: Redactar
+La metodologia que s'ha seguit per construir i redactar la memòria d'aquest treball final de grau consisteix en un conjunt de directrius.
+\\\\
+En primera instància es va dissenyar meticulosament el \textit{outline} de la memòria repassant la manquesa d'elements crucials que no havien de faltar. Perquè el marge d'error fos el menor possible el director del projecte va ajudar l'alumne facilitant-li exemples de memòries d'alumnes que ell va portar amb anterioritat perquè veies l'estil que ha de tenir una memòria. Així doncs, amb la combinació d'aquests dos aspectes es va dissenyar el \textit{outline} o índex complet.
+\\\\
+Com a següent pas de la cronologia de la memòria, es van buscar plantilles en format \LaTeX. Un cop es va trobar la plantilla adient al que es necessitava, es va adaptar al projecte en qüestió i es va començar a redactar. El mètode de redacció s'ha basat, semblant a la implementació del codi, en les \textit{issues} de GitHub. Cadascun dels apartats s'enregistrava en el repositori i se li atribuïa una etiqueta indicant si l'apartat s'havia de modificar o bé redactar d'un bon inici.
+\\
+\begin{figure}[H]
+\includegraphics[scale=0.375]{Figures/issues.png}
+\caption{Gestió d'issues}
+\end{figure}
+
+\noindent Les diferents versions de la memòria s'han anat validant per part del director del projecte, per així conèixer si el progrés d'aquesta és el correcte.
