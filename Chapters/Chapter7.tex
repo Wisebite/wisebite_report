@@ -36,20 +36,80 @@ La realització de la memòria del projecte ha estat realitzada amb el llenguatg
 
 \subsection{Bases de dades}
 
-TODO: Redactar
+\textbf{\large Firebase}\cite{firebase}\\
+Com s'ha comentat en capítols anteriors amb més detall, aquest projecte utilitza Firebase com a base de dades. Aquesta base de dades no relacional de tipus clau-valor ha aportat molts avantatges en el desenvolupament de l'aplicació donades les seves característiques, que anaven acord amb els objectius de \textit{Wisebite}.
+\\\\
+\textbf{\large SQLite}\cite{sqlite}\\
+Al ser una plataforma Android, l'ús d'SQLite ve implícit en el desenvolupament del projecte. Aquesta base de dades actua com a memòria cau per així optimitzar l'obtenció de recursos durant la navegació per l'aplicació.
+\\\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.30]{Figures/firebase.png}
+\includegraphics[scale=0.10]{Figures/sqlite.png}
+\caption{Bases de dades}
+\end{figure}
 
 \subsection{Eines}
 
-TODO: Redactar
+\textbf{\large Android Studio}\cite{androidstudio}\\
+Google, com a propietari d'Android, recomana l'ús d'Android Studio per al desenvolupament de les seves aplicacions natives. A més a més, gràcies a la col·laboració de \textit{JetBrains}, aquest IDE disposa de moltes funcionalitats que faciliten l'ús del desenvolupador. Es pot nodrir d'un gran seguit de \textit{plugins} que permet fer-te el programa teu i desenvolupar amb més qualitat.
+\\\\
+\textbf{\large Genymotion}\cite{genymotion}\\
+Durant el desenvolupament, les proves principals de l'aplicació s'han realitzat amb un terminal físic. Tot i així, per provar com funciona l'aplicació en diferents dispositius s'ha utilitzat Genymotion, un emulador al qual li pots afegir tot tipus de dispositiu Android, sigui mòbil o tauleta. Així s'ha pogut experimentar i provar com ha quedat el disseny de la interfície en plataformes diferents.
+\\\\
+\textbf{\large TeXstudio}\cite{texstudio}\\
+Per al desenvolupament de la memòria s'ha utilizat el IDE de \LaTeX, anomenat TeXstudio. Aquest IDE et permet escriure en \LaTeX, de forma més agradable i ràpida gràcies principalment als seus \textit{shortcuts}. A més a més, pots alimentar aquest programa de plugins que et facilitaran més la redacció de la memòria, com per exemple un plugin de \textit{Softcatalà} que et permet tenir un corrector ortogràfic i gramatical de català durant l'escriptura del document final.
+\\\\
+\textbf{\large Git}\cite{git}\\
+L'ús de Git durant el desenvolupament de \textit{Wisebite} ha estat vital per a la construcció del producte final. El poder de poder tenir un conjunt de versions del teu programa ha permès desenvolupar de forma més fàcil i sense por a provar coses noves i no trencar el codi anterior.
+\\\\
+\textbf{\large GitHub}\cite{github}\\
+GitHub és considerat el gestor de repositoris remots més conegut del sector. Gràcies a les funcionalitats de les quals disposa, com poden ser les \textit{issues} o les \textit{pull requests}, han permès tenir un codi documentat i poder tenir un bon històric del desenvolupament del projecte. En apartats posteriors s'explicarà amb més detall com a funcionat el flux de treball amb l'ús de GitHub.
+\\\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.06]{Figures/androidstudio.png}
+\includegraphics[scale=0.38]{Figures/genymotion.png}
+\includegraphics[scale=0.18]{Figures/texstudio.png}
+\hspace{0.1cm}
+\includegraphics[scale=0.2]{Figures/git.png}
+\hspace{0.2cm}
+\includegraphics[scale=0.13]{Figures/github.png}
+\caption{Eines}
+\end{figure}
 
 \subsection{Llibreries externes}
 
-TODO: Redactar
+\textbf{\large Google Play Services}\cite{googleplayservices}\\
+La majoria d'aplicacions Android utilitzen aquesta llibreria, ja que et permet accedir a totes les APIs disponibles de les quals disposa Google. En aquest projecte s'ha utilitzat només per això l'API d'autentificació, ja que el \textit{Log in} de l'aplicació es fa via Google.
+\\\\
+\textbf{\large FloatingActionButton}\cite{floatingactionbutton}\\
+Durant el desenvolupament del projecte es va voler integrar un \textit{FloatingActionButton}, botó molt característic del \textit{Material Design}, però amb un menú integrat. Característica que no estava disponible en les llibreries natives d'Android. És per això que es va integrar aquesta llibreria externa de software lliure que ho permetia.
+\\\\
+\textbf{\large Picasso}\cite{picasso}\\
+En les funcionalitats de gestió d'usuari, era necessària la interacció de les imatges amb l'aplicació. Concretament, es necessitava carregar les imatges des d'un URL. Es va estar investigant quina era la millor opció i es va acabar optant per Picasso. Una llibreria externa de software lliure que et permet carregar imatges via un URL de forma molt fàcil. Aquesta llibreria a més t'emmagatzema de forma automàtica la càrrega d'imatge a la memòria cau, fet que optimitza la plataforma i millora el flux de l'usuari amb aquesta.
+\\\\
+\textbf{\large MPAndroidChart}\cite{mpandroidchart}\\
+Una de les funcionalitats de les quals disposa l'aplicació, i que s'ha esmentat anteriorment, és l'anàlisi de dades del restaurant. És per això que es va voler introduir un conjunt de gràfiques per visualitzar més fàcilment l'estat estadístic del restaurant. \textit{MPAndroidChart} és una llibreria de software lliure que et permet realitzar tot tipus de gràfiques, ja sigui un histograma, un gràfic de barres o circular i molts més.
+\\\\
+\textbf{\large Lombok}\cite{lombok}\\
+Per optimitzar més el desenvolupament del projecte es va voler utilitzar la llibreria externa de software lliure anomenada Lombok, que et permet tenir codis més nets i més fàcils d'entendre. Per exemple, amb un simple @Getter a la capçalera d'una classe et permet tenir totes les funcions get dels atributs privats de la classe en qüestió.
+\\\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.20]{Figures/googleplayservices.png}
+\includegraphics[scale=0.20]{Figures/floatingactionbutton.png}
+\includegraphics[scale=0.25]{Figures/square.png}
+\includegraphics[scale=0.075]{Figures/mpandroidchart.png}
+\includegraphics[scale=0.25]{Figures/lombok.png}
+\caption{Llibreries externes}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
+\clearpage
 \section{Detalls de la implementació}
 
 TODO: Redactar
