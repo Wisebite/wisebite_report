@@ -287,8 +287,20 @@ S'ha utilitzat, com s'ha comentat anteriorment, quatre patrons de disseny durant
 \end{figure}
 
 \item \textbf{Patró servei / injecció de dependència}: utilitzat per crear una capa d'abstracció sobre els dipòsits prèviament esmentats. En aquestes noves classes, les quals hereten d'una interfície anomenada \textit{Service}, ens permet executar la lògica del programa, sense necessitat d'accedir directament als repositoris. Aquests serveis contenen una instància única del repositori. Gràcies a la injecció de dependència podem realitzar tests de la lògica del programa sense haver de fer servir la base de dades real mitjançant \textit{mocking} dels repositoris. Malauradament, donat al factor temporal i que especificarem en capítols posteriors, no s'ha posat a la pràctica la utilitat dels tests. Tot i així, el codi del programa està ben preparat per poder afegir tests fàcilment.
+\\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Figures/patro_servei.png}
+\caption{Patró servei}
+\end{figure}
 
 \item \textbf{Patró factoria}: utilitzat per a la crida de serveis amb la creació d'un singleton anomenat \textit{ServiceFactory}. Permet abstreure la funcionalitat de creació del servei, permetent així evitar la creació repetitiva del servei a cada ús que se li dóna, fet que comportaria tenir moltes instàncies del mateix objecte repartides per l'execució de l'aplicació. Separa la instanciació del servei del seu ús. Permet que es faci injecció de dependències sense haver de saber l'estructura d'aquesta.
+\\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Figures/patro_factoria.png}
+\caption{Patró factoria}
+\end{figure}
 
 \item \textbf{MVC}: utilitzat per organitzar l'estructura de l'aplicació. En el cas de \textit{Wisebite} en tractar-se d'Android les vistes són les activities. D'altra banda els controladors s'han anomenat serveis.
 \end{itemize}
