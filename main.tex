@@ -25,7 +25,9 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
-catalan, % ngerman for German
+catalan,
+english,
+spanish,
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
@@ -51,11 +53,14 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{appendix}
-
+\usepackage{datetime}
 
 \addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\newdate{date}{27}{06}{2017}
+\date{\displaydate{date}}
 
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
@@ -83,10 +88,10 @@ headsepline, % Uncomment to get a line under the header
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
-\university{\href{http://www.upc.edu}{Universitat Politècnica de Catalunya}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\university{\href{http://www.upc.edu}{UNIVERSITAT POLITÈCNICA DE CATALUNYA (UPC) – BarcelonaTech}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{https://www.essi.upc.edu/}{Departament d'Enginyeria de Serveis i Sistemes d'Informació}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{\href{https://www.essi.upc.edu/}{ESSI}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
-\faculty{\href{http://www.fib.upc.edu}{Facultat d'Informàtica de Barcelona}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\faculty{\href{http://www.fib.upc.edu}{FACULTAT D’INFORMÀTICA DE BARCELONA (FIB)}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \AtBeginDocument{
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
@@ -132,6 +137,7 @@ headsepline, % Uncomment to get a line under the header
 }
 
 \begin{document}
+\selectlanguage{catalan}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
@@ -151,19 +157,20 @@ headsepline, % Uncomment to get a line under the header
 \textsc{\Large Treball Final de Grau}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis 
+{\large La gestió intel·ligent de restaurants\par}\vspace{0.1cm} % Thesis title
 \HRule \\[1.5cm] % Horizontal line
  
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Autor:}\\
-\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\authorname % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushright} \large
 \emph{Director:} \\
-\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\supname % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[3cm]
  
@@ -171,11 +178,11 @@ headsepline, % Uncomment to get a line under the header
 
 \large \textit{Un treball final de grau corresponent\\ al \degreename}\\[0.3cm] % University requirement text
 \textit{en el}\\[0.4cm]
-\deptname\\[2cm] % Research group name and department name
- 
+\deptname\\[0.4cm] % Research group name and department name]
+\facname\\[1.5cm]
 \vfill
 
-{\large \today}\\[4cm] % Date
+{\large \displaydate{date}}\\[4cm] % Date
  
 \vfill
 \end{center}
@@ -188,10 +195,34 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-La tecnologia està evolucionant de forma exponencial en els últims anys. Tot i així, sembla que hi ha un seguit de sectors en la societat que no s'acaben d'adaptar a aquest canvi. Un d'aquests sectors és el la restauració. Ja poden existir sistemes d'Intel·ligència Artificial que et realitzen la comanda al supermercat de forma automàtica, però encara avui en dia es veuen establiments com bars i restaurants que encara realitzen les comandes a bolígraf i paper. La pregunta que ens realitzem és: per què està passant això? En aquest treball final de grau s'ha estudiat els motius i s'ha analitzat com podria ser la millor solució pel problema comentat.
+La tecnologia està evolucionant de forma exponencial en els últims anys. Tot i així, sembla que hi ha un seguit de sectors en la societat que no s'acaben d'adaptar a aquest canvi. Un d'aquests sectors és el la restauració. Ja poden existir sistemes d'Intel·ligència Artificial que et realitzen la comanda al supermercat de forma automàtica o bé aplicacions de Realitat Virtual que et permeten estar on vulguis, però encara avui en dia es veuen establiments com bars i restaurants que encara realitzen les comandes a bolígraf i paper. La pregunta que ens realitzem és: per què està passant això? En aquest treball final de grau s'ha estudiat els motius i s'ha analitzat com podria ser la millor solució pel problema comentat.
 \\\\
-\textit{Wisebite}, la plataforma que gestiona de forma intel·ligent els establiments de restauració, té com a objectiu solucionar aquesta problemàtica. Així, no només modernitzaria el sector, sinó que també podria oferir millors resultats en qualitat de servei, eficiència i beneficis econòmics als establiments que decideixin implantar-la.
+\textit{Wisebite}, la plataforma que gestiona de forma intel·ligent els establiments de restauració, té com a objectiu solucionar aquesta problemàtica. Així, no només modernitzaria el sector, sinó que també podria oferir millors resultats en qualitat de servei, eficiència i beneficis econòmics als establiments que decideixin implantar-la. Aquesta aplicació, disponible en plataformes Android, et permetrà gestionar internament el teu establiment administrant les comandes dia a dia, et facilitarà un recull de les estadístiques per millorar el teu restaurant i els teus clients podran interaccionar amb l'establiment creant ells mateixos les comandes i valorant el teu restaurant.
+\\\\
+Amb la realització d'aquest treball final de grau es pretén marcar èmfasi en el concepte que els informàtics tenim més poder en la societat del que pensem. Moltes aplicacions han aparegut del desconeixentment i han generat necessitats que mai pensàvem que existirien. \textit{Wisebite} té com a objectiu principal millorar el món de la restauració aportant un sistema plenament genèric i personalitzable a l'usuari, que aquest es pugui fer seva la plataforma, i que amb ella pugui millorar el seu establiment. Convertir una simple aplicació en una eina més del dia quotidià de les persones relacionades amb el sector. Dit d'una altra manera, canviar el món.
 \end{abstract}
+
+\selectlanguage{spanish}
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+La tecnología está evolucionando de forma exponencial en los últimos años. Sin embargo, parece que hay una serie de sectores en la sociedad que no acaban de adaptarse a este cambio. Uno de estos sectores es el de la restauración. Ya pueden existir sistemas de Inteligencia Artificial que te realizen el pedido en el supermercado de forma automática o bien aplicaciones de Realidad Virtual que te permitan estar donde quieras, pero aún hoy en día se ven establecimientos como bares y restaurantes que aún realizan los pedidos a bolígrafo y papel. La pregunta que nos realizamos es: ¿por qué está pasando esto? En este trabajo final de grado se ha estudiado los motivos y se ha analizado como podría ser la mejor solución para el problema comentado.
+\\\\
+\textit{Wisebite}, la plataforma que gestiona de forma inteligente los establecimientos de restauración, tiene como objetivo solucionar esta problemática. Así, no sólo modernizaría el sector, sino que también podría ofrecer mejores resultados en calidad de servicio, eficiencia y beneficios económicos a los establecimientos que decidan implantarla. Esta aplicación, disponible en plataformas Android, te permitirá gestionar internamente tu establecimiento administrando los pedidos día a día, te facilitará una recopilación de las estadísticas para mejorar tu restaurante y tus clientes podrán interaccionar con el establecimiento creando ellos mismos los pedidos y valorando tu restaurante.
+\\\\
+Con la realización de este trabajo final de grado se pretende poner incapié en el concepto de que los informáticos tenemos más poder en la sociedad de lo que pensamos. Muchas aplicaciones han aparecido del desconocimiento y han generado necesidades que nunca pensábamos que existirían. \textit{Wisebite} tiene como objetivo principal mejorar el mundo de la restauración aportando un sistema plenamente genérico y personalizable al usuario, que éste se pueda hacer suya la plataforma, y que con ella pueda mejorar su establecimiento. Convertir una simple aplicación en una herramienta más del día cotidiano de las personas relacionadas con el sector. Dicho de otro modo, cambiar el mundo.
+\end{abstract}
+
+\selectlanguage{english}
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Technology has been evolving exponentially in last years. However, it seems that there are a lot of fields in society that have not adapted to this change yet. One of these fields is the restoration. There are Artificial Intelligence systems that make the order in the supermarket automatically or there are Virtual Reality applications that allow you to be where you want, but still today you can see establishments like bars and restaurants that still work with pen and paper. The question that we might ask ourselves is: why is this happening? In this degree final project the reasons have been studied and it has been analyzed how it could be the best solution for the commented problem.
+\\\\
+\textit{Wisebite}, the platform that intelligently manages restoration establishments, wants to solve this problem. Thus, it would not only modernize the sector, but could also offer better results in terms of service quality, efficiency and economic benefits to establishments that decide to implement it. This application, available on Android platforms, will allow you to manage internally your establishment managing the orders day by day, will provide a set of statistics to improve your restaurant and your customers can interact with the establishment by creating the orders themselves and valuing your restaurant.
+\\\\
+With the completion of this degree final project, it is intended to emphasize in the concept that we have more power in society than we think. Many applications have appeared out of ignorance and generated needs that we never thought would exist. \textit{Wisebite}'s main objective is to improve the world of restoration by providing a fully generic and customizable system to the user, so that the user can make the platform his own, and with it can improve its establishment. Convert a simple application into a tool of the daily day of the people related to the sector. Put another way, change the world.
+\end{abstract}
+
+\selectlanguage{catalan}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -228,24 +259,6 @@ La tecnologia està evolucionant de forma exponencial en els últims anys. Tot i
 % \phantomsection
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables % Prints the list of tables
-
-%----------------------------------------------------------------------------------------
-%	ABBREVIATIONS
-%----------------------------------------------------------------------------------------
-
-\cleardoublepage
-% \phantomsection
-\addcontentsline{toc}{chapter}{Índex d'abreviacions}
-\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
-
-\textbf{IBM} & \textbf{I}nternational \textbf{B}usiness \textbf{M}achines\\
-\textbf{PDA} & \textbf{P}ersonal \textbf{D}igital \textbf{A}ssistant\\
-\textbf{TPV} & \textbf{T}erminal \textbf{P}unt de \textbf{V}enda\\
-\textbf{GUI} & \textbf{G}raphical \textbf{U}ser de \textbf{I}nterface\\
-\textbf{GEP} & \textbf{G}\textbf{E}stió de \textbf{P}rojectes\\
-\textbf{UML} & \textbf{U}nified \textbf{M}odeling \textbf{L}anguage\\
-
-\end{abbreviations}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
